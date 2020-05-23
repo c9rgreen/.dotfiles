@@ -12,6 +12,7 @@
 - [Pandoc](https://pandoc.org)
 - [Multipass](https://multipass.run)
 - [Docker](https://docs.docker.com)
+- [Syncthing](https://syncthing.net)
 - [Python](https://www.python.org/downloads/)
 - [NodeJS](https://nodejs.org/en/)
 - [Haskell](https://www.haskell.org/platform/mac.html)
