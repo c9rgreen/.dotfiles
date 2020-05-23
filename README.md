@@ -18,8 +18,8 @@
 
 ## Colors
 
-Green: #2EBC4F
-Black: #373F48
+Green: `#2EBC4F` 
+Black: `#373F48` 
 
 iOS Wallpaper
 
