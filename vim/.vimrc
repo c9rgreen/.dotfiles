@@ -53,9 +53,6 @@ command! HardWrap if &fo =~ 'a' | setlocal fo-=a | else | setlocal fo+=a | endif
 " Find word under cursor
 command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :cc
 
-" Generate tags
-command! Tags :!ctags -R .
-
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <leader>e :edit **/*
