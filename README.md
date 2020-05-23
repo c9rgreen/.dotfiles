@@ -7,7 +7,7 @@
 - [MacVim](https://macvim-dev.github.io/macvim/)
 - [MacPass](https://macpassapp.org)
 - [GitUp](https://gitup.co)
-- [MacPorts](https://www.macports.org)
+- [Anki](https://apps.ankiweb.net)
 - [MacTex](https://www.tug.org/mactex/)
 - [Pandoc](https://pandoc.org)
 - [Multipass](https://multipass.run)
