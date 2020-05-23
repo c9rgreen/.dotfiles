@@ -7,6 +7,6 @@
 [submodule "vim/.vim/pack/submodules/start/vim-lilypond"]
 	path = vim/.vim/pack/submodules/start/vim-lilypond
 	url = git@github.com:cg433n/vim-lilypond.git
-[submodule "vim/.vim/pack/submodules/start/vim-colors-github"]
-	path = vim/.vim/pack/submodules/start/vim-colors-github
-	url = git@github.com:cormacrelf/vim-colors-github.git
+[submodule "vim/.vim/pack/submodules/start/github.vim"]
+	path = vim/.vim/pack/submodules/start/github.vim
+	url = git@github.com:albertorestifo/github.vim.git
