@@ -1,0 +1,25 @@
+[user]
+	email = cg433n@me.com
+	name = Christopher Green
+[core]
+	editor = vim
+[alias]
+	graph = log --graph --abbrev-commit --date=iso --all
+	list-tags = tag --sort version:refname -n10 -n
+	d = difftool
+[github]
+	user = cg433n
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[init]
+	templatedir = ~/.git_template
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+[diff]
+	tool = vimdiff

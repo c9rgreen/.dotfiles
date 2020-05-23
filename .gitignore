@@ -1,0 +1,6 @@
+.DS_Store
+tags
+.netrwhist
+.zsh_history
+vim/.vim/spell/
+vim/.vim/pack/local/
