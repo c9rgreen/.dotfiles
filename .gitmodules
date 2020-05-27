@@ -10,3 +10,6 @@
 [submodule "vim/.vim/pack/submodules/start/github.vim"]
 	path = vim/.vim/pack/submodules/start/github.vim
 	url = git@github.com:albertorestifo/github.vim.git
+[submodule "vim/.vim/pack/submodules/start/nord-vim"]
+	path = vim/.vim/pack/submodules/start/nord-vim
+	url = git@github.com:arcticicestudio/nord-vim.git

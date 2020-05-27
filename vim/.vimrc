@@ -38,10 +38,10 @@ set statusline=%<[%{fnamemodify(getcwd(),':t')}]\ %f\ %h%m%r%{exists('g:loaded_f
 set foldlevel=5
 set virtualedit=all
 
-silent! colorscheme github
+silent! colorscheme nord
 
 if has('gui_macvim')
-  set guifont=Menlo:h12
+  set guifont=Iosevka:h14
 endif
 
 " Close buffer without closing window
