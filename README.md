@@ -4,6 +4,7 @@
 
 - [Xcode](https://developer.apple.com/xcode/)
 - [iWork](https://www.apple.com/iwork/)
+- [MacPorts](https://www.macports.org)
 - [MacVim](https://macvim-dev.github.io/macvim/)
 - [MacPass](https://macpassapp.org)
 - [GitUp](https://gitup.co)
