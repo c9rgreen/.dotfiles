@@ -44,7 +44,10 @@ colorscheme default
 if has('gui_macvim')
   set guifont=SFMono-Regular:h12
   colorscheme macvim
-  autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
+  augroup LookandFeel
+    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
+    autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
+  augroup END
 endif
 
 " Close buffer without closing window
@@ -66,5 +69,6 @@ packadd! matchit
 let g:netrw_banner = 0
 let g:markdown_folding = 1
 
-autocmd FileType text,rst,markdown setlocal spell
-autocmd VimEnter,ColorScheme * highlight EndOfBuffer guifg=bg
+augroup Writing
+  autocmd FileType text,rst,markdown setlocal spell
+augroup END
