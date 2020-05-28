@@ -43,6 +43,7 @@ colorscheme default
 if has('gui_macvim')
   set guifont=Menlo:h12
   colorscheme macvim
+  autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
 endif
 
 " Close buffer without closing window
