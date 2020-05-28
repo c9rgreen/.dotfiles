@@ -37,11 +37,12 @@ set laststatus=2
 set statusline=%<[%{fnamemodify(getcwd(),':t')}]\ %f\ %h%m%r%{exists('g:loaded_fugitive')?fugitive#statusline():''}%=%-14.(%l,%c%V\ %L%)\ %P\ [%{wordcount().words}]
 set foldlevel=5
 set virtualedit=all
+set linespace=1
 
 colorscheme default
 
 if has('gui_macvim')
-  set guifont=Menlo:h12
+  set guifont=SFMono-Regular:h12
   colorscheme macvim
   autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
 endif
