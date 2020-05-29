@@ -18,7 +18,7 @@
 [init]
 	templatedir = ~/.git_template
 [merge]
-	tool = vimdiff
+	tool = gvimdiff
 [mergetool]
 	prompt = false
 [diff]
