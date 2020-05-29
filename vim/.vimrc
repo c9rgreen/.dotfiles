@@ -72,3 +72,5 @@ let g:markdown_folding = 1
 augroup Writing
   autocmd FileType text,rst,markdown setlocal spell
 augroup END
+
+ia <expr> :isodate: strftime("%Y-%m-%d")
