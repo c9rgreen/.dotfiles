@@ -69,6 +69,8 @@ nnoremap <leader>e :edit **/*
 nnoremap <leader>p gqip$
 nnoremap <leader>a :tag *
 
+ia <expr> :isodate: strftime("%Y-%m-%d")
+
 packadd! matchit
 nnoremap - :Ex<cr>
 let g:netrw_banner = 0
