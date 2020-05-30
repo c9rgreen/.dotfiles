@@ -53,6 +53,10 @@ endif
 " Close buffer without closing window
 command! Bd :bn | :bd#
 
+" Change working directory to currently open file
+command! Cd :cd %:p:h
+command! Lcd :lcd %:p:h
+
 " Toggle hard wrap
 command! HardWrap if &fo =~ 'a' | setlocal fo-=a | else | setlocal fo+=a | endif
 
@@ -66,9 +70,22 @@ nnoremap <leader>p gqip$
 nnoremap <leader>a :tag *
 
 packadd! matchit
+nnoremap - :Ex<cr>
 let g:netrw_banner = 0
 let g:markdown_folding = 1
 
 augroup Writing
   autocmd FileType text,rst,markdown setlocal spell
 augroup END
+
+if g:loaded_ctrlp
+  let g:ctrlp_user_command={
+        \ 'types': {
+        \ 1: ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'],
+        \ },
+        \ 'fallback': 'find . -type d -name ".git" -prune -o -type f -print' 
+        \ }
+  let g:ctrlp_use_caching = 0
+  nnoremap bb :CtrlPBuffer<cr>
+  nnoremap tt :CtrlPTag<cr>
+endif
