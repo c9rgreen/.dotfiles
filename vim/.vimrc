@@ -80,14 +80,7 @@ augroup Writing
   autocmd FileType text,rst,markdown setlocal spell
 augroup END
 
-if g:loaded_ctrlp
-  let g:ctrlp_user_command={
-        \ 'types': {
-        \ 1: ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'],
-        \ },
-        \ 'fallback': 'find . -type d -name ".git" -prune -o -type f -print' 
-        \ }
-  let g:ctrlp_use_caching = 0
-  nnoremap bb :CtrlPBuffer<cr>
-  nnoremap tt :CtrlPTag<cr>
-endif
+let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_use_caching = 0
+nnoremap <leader>u :CtrlPBuffer<cr>
+nnoremap <leader>t :CtrlPTag<cr>
