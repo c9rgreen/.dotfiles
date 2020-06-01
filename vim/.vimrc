@@ -39,11 +39,11 @@ set foldlevel=5
 set virtualedit=all
 set linespace=1
 
-colorscheme default
+colorscheme solarized8
 
 if has('gui_macvim')
   set guifont=SFMono-Regular:h12
-  colorscheme macvim
+  colorscheme solarized8
   augroup LookandFeel
     autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
     autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg

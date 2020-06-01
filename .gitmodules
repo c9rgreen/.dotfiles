@@ -10,3 +10,6 @@
 [submodule "vim/.vim/pack/submodules/start/ctrlp.vim"]
 	path = vim/.vim/pack/submodules/start/ctrlp.vim
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "vim/.vim/pack/submodules/start/vim-polyglot"]
+	path = vim/.vim/pack/submodules/start/vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot.git
