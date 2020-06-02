@@ -53,3 +53,4 @@ PS1="%n@%m: %~%# "
 precmd () {
   print -Pn "\e]0; %n@%m: %~\a"
 }
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
