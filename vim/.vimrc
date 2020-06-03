@@ -43,7 +43,7 @@ colorscheme hemisu
 
 if has('gui_macvim')
   set guifont=SFMono-Regular:h12
-  set transparency=10
+  set transparency=5
   augroup LookandFeel
     autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
     autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
