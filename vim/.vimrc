@@ -39,11 +39,11 @@ set foldlevel=5
 set virtualedit=all
 set linespace=1
 
-colorscheme default
+colorscheme hemisu
 
 if has('gui_macvim')
   set guifont=SFMono-Regular:h12
-  colorscheme macvim
+  set transparency=10
   augroup LookandFeel
     autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
     autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
@@ -69,7 +69,7 @@ nnoremap <leader>e :edit **/*
 nnoremap <leader>p gqip$
 nnoremap <leader>a :tag *
 
-ia <expr> :isodate: strftime("%Y-%m-%d")
+ia <expr> :date: strftime("%Y-%m-%d")
 
 packadd! matchit
 nnoremap - :Ex<cr>
@@ -84,3 +84,5 @@ let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude
 let g:ctrlp_use_caching = 0
 nnoremap <leader>u :CtrlPBuffer<cr>
 nnoremap <leader>t :CtrlPTag<cr>
+
+let g:polyglot_disabled = ['markdown']

@@ -13,3 +13,9 @@
 [submodule "vim/.vim/pack/submodules/start/vim-polyglot"]
 	path = vim/.vim/pack/submodules/start/vim-polyglot
 	url = git@github.com:sheerun/vim-polyglot.git
+[submodule "vim/.vim/pack/submodules/vim-polyglot"]
+	path = vim/.vim/pack/submodules/vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot.git
+[submodule "vim/.vim/pack/submodules/start/vim-hemisu"]
+	path = vim/.vim/pack/submodules/start/vim-hemisu
+	url = git@github.com:noahfrederick/vim-hemisu.git
