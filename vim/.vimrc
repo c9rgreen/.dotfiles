@@ -38,6 +38,7 @@ set statusline=%<[%{fnamemodify(getcwd(),':t')}]\ %f\ %h%m%r%{exists('g:loaded_f
 set foldlevel=5
 set virtualedit=all
 set linespace=1
+set thesaurus=~/.vim/thesaurus/mthesaur.txt
 
 colorscheme hemisu
 
