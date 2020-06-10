@@ -51,39 +51,40 @@ if has('gui_macvim')
   augroup END
 endif
 
-" Close buffer without closing window
-command! Bd :bn | :bd#
-
-" Change working directory to currently open file
-command! Cd :cd %:p:h
-command! Lcd :lcd %:p:h
-
-" Toggle hard wrap
-command! HardWrap if &fo =~ 'a' | setlocal fo-=a | else | setlocal fo+=a | endif
-
-" Find word under cursor
-command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :cc
-
+" Mappings
+map <Space> <Leader>
+nnoremap <leader>o <C-O>
+nnoremap <leader>i <C-I>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <leader>e :edit **/*
-nnoremap <leader>p gqip$
+nnoremap <leader>h gqip$
 nnoremap <leader>a :tag *
+nnoremap - :Ex<cr>
+nnoremap <leader>u :CtrlPBuffer<cr>
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>s :Gstatus<cr>
 
+" Commands
+command! Bd :bn | :bd#
+command! Cd :cd %:p:h
+command! Lcd :lcd %:p:h
+command! HardWrap if &fo =~ 'a' | setlocal fo-=a | else | setlocal fo+=a | endif
+command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :cc
+
+" Abbreviations
 ia <expr> :date: strftime("%Y-%m-%d")
 
+" Packages
 packadd! matchit
-nnoremap - :Ex<cr>
 let g:netrw_banner = 0
 let g:markdown_folding = 1
+let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_use_caching = 0
+let g:polyglot_disabled = ['markdown']
 
+" Autocommands
 augroup Writing
   autocmd FileType text,rst,markdown setlocal spell
 augroup END
-
-let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_use_caching = 0
-nnoremap <leader>u :CtrlPBuffer<cr>
-nnoremap <leader>t :CtrlPTag<cr>
-
-let g:polyglot_disabled = ['markdown']
