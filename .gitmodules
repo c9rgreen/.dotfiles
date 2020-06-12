@@ -13,3 +13,6 @@
 [submodule "vim/.vim/pack/submodules/start/vim-hemisu"]
 	path = vim/.vim/pack/submodules/start/vim-hemisu
 	url = git@github.com:noahfrederick/vim-hemisu.git
+[submodule "vim/.vim/pack/submodules/start/ale"]
+	path = vim/.vim/pack/submodules/start/ale
+	url = git@github.com:dense-analysis/ale.git

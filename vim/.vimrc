@@ -16,7 +16,7 @@ set clipboard^=unnamed,unnamedplus
 set formatoptions=tcroqjn
 set showmatch
 set expandtab
-set tabstop=2
+set tabstop=4
 set shiftwidth=0
 set diffopt=vertical
 set autowrite
@@ -83,8 +83,13 @@ let g:markdown_folding = 1
 let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_use_caching = 0
 let g:polyglot_disabled = ['markdown']
+let g:ale_completion_enabled=1
+let g:ale_completion_tsserver_autoimport=1
+set omnifunc=ale#completion#OmniFunc
 
 " Autocommands
 augroup Writing
   autocmd FileType text,rst,markdown setlocal spell
+  autocmd FileType outlaw setlocal spell
+  autocmd BufNewFile,BufRead *.txt setlocal filetype=outlaw
 augroup END
