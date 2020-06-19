@@ -4,7 +4,7 @@ syntax enable
 set autoindent
 set smartindent
 set backspace=indent,eol,start
-set completeopt=menu,menuone,preview
+set completeopt=menu,menuone,preview,noselect
 set omnifunc=syntaxcomplete#Complete
 set infercase
 set nowrap
@@ -86,10 +86,15 @@ let g:polyglot_disabled = ['markdown']
 let g:ale_completion_enabled=1
 let g:ale_completion_tsserver_autoimport=1
 set omnifunc=ale#completion#OmniFunc
+let g:mucomplete#enable_auto_at_startup = 1
 
 " Autocommands
 augroup Writing
   autocmd FileType text,rst,markdown setlocal spell
-  autocmd FileType outlaw setlocal spell
-  autocmd BufNewFile,BufRead *.txt setlocal filetype=outlaw
+  autocmd FileType text setlocal foldmethod=indent
+augroup END
+
+augroup HiglightTODO
+    autocmd!
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
 augroup END
