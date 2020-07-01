@@ -39,6 +39,7 @@ set foldlevel=5
 set virtualedit=all
 set linespace=1
 set thesaurus=~/.vim/thesaurus/mthesaur.txt
+set isfname+=32
 
 colorscheme hemisu
 
@@ -53,6 +54,7 @@ endif
 
 " Mappings
 map <Space> <Leader>
+map gf :e <cfile><CR>
 nnoremap <leader>o <C-O>
 nnoremap <leader>i <C-I>
 vnoremap < <gv
@@ -62,7 +64,7 @@ nnoremap <leader>h gqip$
 nnoremap <leader>a :tag *
 nnoremap - :Ex<cr>
 nnoremap <leader>u :CtrlPBuffer<cr>
-nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>g :CtrlPTag<cr>
 nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>s :Gstatus<cr>
 
@@ -75,6 +77,7 @@ command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :
 
 " Abbreviations
 ia <expr> :date: strftime("%Y-%m-%d")
+ia <expr> [[]] strftime("[[%Y%m%d%H%M%S]]")
 
 " Packages
 packadd! matchit
@@ -90,8 +93,10 @@ let g:mucomplete#enable_auto_at_startup = 1
 
 " Autocommands
 augroup Writing
-  autocmd FileType text,rst,markdown setlocal spell
-  autocmd FileType text setlocal foldmethod=indent
+    autocmd!
+    autocmd FileType text,rst,markdown setlocal spell
+    autocmd FileType text setlocal foldmethod=indent
+    autocmd FileType text,rst,markdown nnoremap <CR> :e <cfile><CR>
 augroup END
 
 augroup HiglightTODO
