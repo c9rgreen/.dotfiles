@@ -40,6 +40,7 @@ set virtualedit=all
 set linespace=1
 set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
+set belloff+=ctrlg
 
 colorscheme hemisu
 
@@ -97,6 +98,7 @@ augroup Writing
     autocmd FileType text,rst,markdown setlocal spell
     autocmd FileType text setlocal foldmethod=indent
     autocmd FileType text,rst,markdown nnoremap <CR> :e <cfile><CR>
+    autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
 augroup END
 
 augroup HiglightTODO
