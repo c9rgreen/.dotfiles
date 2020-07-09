@@ -77,8 +77,8 @@ command! HardWrap if &fo =~ 'a' | setlocal fo-=a | else | setlocal fo+=a | endif
 command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :cc
 
 " Abbreviations
-ia <expr> :date: strftime("%Y-%m-%d")
-ia <expr> [[]] strftime("[[%Y%m%d%H%M%S]]")
+iabbrev <expr> :date: strftime("%Y-%m-%d")
+iabbrev <expr> [[]] strftime("[[%Y%m%d%H%M%S]]")
 
 " Packages
 packadd! matchit
@@ -96,6 +96,7 @@ let g:mucomplete#enable_auto_at_startup = 1
 augroup Writing
     autocmd!
     autocmd FileType text,rst,markdown setlocal spell
+    autocmd FileType text,rst,markdown setlocal nosmartindent
     autocmd FileType text setlocal foldmethod=indent
     autocmd FileType text,rst,markdown nnoremap <CR> :e <cfile><CR>
     autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
