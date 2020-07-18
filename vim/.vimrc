@@ -42,11 +42,11 @@ set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
 set belloff+=ctrlg
 
-colorscheme hemisu
+colorscheme solarized8
 
+" macOS specific
 if has('gui_macvim')
-  set guifont=SFMono-Regular:h12
-  set transparency=5
+  set guifont=Menlo-Regular:h14
   augroup LookandFeel
     autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
     autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
