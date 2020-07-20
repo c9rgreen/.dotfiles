@@ -100,7 +100,8 @@ augroup Writing
     autocmd FileType text setlocal foldmethod=indent
     autocmd FileType text,rst,markdown nnoremap <CR> :e <cfile><CR>
     autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
-augroup END
+    autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
+augroup END   
 
 augroup HiglightTODO
     autocmd!
