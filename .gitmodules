@@ -16,3 +16,6 @@
 [submodule "vim/.vim/pack/submodules/start/ale"]
 	path = vim/.vim/pack/submodules/start/ale
 	url = git@github.com:dense-analysis/ale.git
+[submodule "vim/.vim/pack/submodules/start/space-vim-theme"]
+	path = vim/.vim/pack/submodules/start/space-vim-theme
+	url = git@github.com:liuchengxu/space-vim-theme.git
