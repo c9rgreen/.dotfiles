@@ -8,3 +8,7 @@ path+=/Library/Frameworks/Python.framework/Versions/3.8/bin
 path+=~/Library/Python/3.8/bin
 path+=~/.npm-global/bin
 fi
+
+# MacPorts
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
