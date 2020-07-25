@@ -42,7 +42,11 @@ set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
 set belloff+=ctrlg
 
-colorscheme space_vim_theme
+try
+    colorscheme space_vim_theme
+catch
+    colorscheme default
+endtry
 
 " macOS specific
 if has('gui_macvim')
