@@ -43,7 +43,7 @@ set isfname+=32
 set belloff+=ctrlg
 
 try
-    colorscheme space_vim_theme
+    colorscheme solarized8
 catch
     colorscheme default
 endtry
