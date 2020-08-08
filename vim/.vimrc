@@ -95,6 +95,8 @@ let g:ale_completion_enabled=1
 let g:ale_completion_tsserver_autoimport=1
 set omnifunc=ale#completion#OmniFunc
 let g:mucomplete#enable_auto_at_startup = 1
+let g:solarized_old_cursor_style = 1
+let g:solarized_italics = 1
 
 " Autocommands
 augroup Writing
