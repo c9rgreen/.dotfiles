@@ -60,10 +60,14 @@ endif
 " Mappings
 map <Space> <Leader>
 map gf :e <cfile><CR>
-nnoremap <leader>o <C-O>
-nnoremap <leader>i <C-I>
+noremap <silent> k gk
+noremap <silent> j gj
+noremap <silent> 0 g0
+noremap <silent> $ g$
 vnoremap < <gv
 vnoremap > >gv
+nnoremap <leader>o <C-O>
+nnoremap <leader>i <C-I>
 nnoremap <leader>e :edit **/*
 nnoremap <leader>h gqip$
 nnoremap <leader>a :tag *
