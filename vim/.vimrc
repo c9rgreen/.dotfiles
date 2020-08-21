@@ -43,7 +43,7 @@ set isfname+=32
 set belloff+=ctrlg
 
 try
-    colorscheme solarized8
+    colorscheme yin
 catch
     colorscheme default
 endtry
@@ -52,7 +52,7 @@ endtry
 if has('gui_macvim')
   set guifont=Menlo:h14
   augroup LookandFeel
-    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set background=light | else | set background=dark | endif
+    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | colorscheme yang | else | colorscheme yin | endif
     autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
   augroup END
 endif
