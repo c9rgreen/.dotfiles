@@ -43,7 +43,7 @@ set isfname+=32
 set belloff+=ctrlg
 
 try
-    colorscheme yin
+    colorscheme spacegray
 catch
     colorscheme default
 endtry
@@ -52,7 +52,7 @@ endtry
 if has('gui_macvim')
   set guifont=Menlo:h14
   augroup LookandFeel
-    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | colorscheme yang | else | colorscheme yin | endif
+    " autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
     autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
   augroup END
 endif
@@ -62,8 +62,6 @@ map <Space> <Leader>
 map gf :e <cfile><CR>
 noremap <silent> k gk
 noremap <silent> j gj
-noremap <silent> 0 g0
-noremap <silent> $ g$
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <leader>o <C-O>
@@ -116,4 +114,9 @@ augroup END
 augroup HiglightTODO
     autocmd!
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
+augroup END
+
+augroup FrontEnd
+    autocmd!
+    autocmd FileType javascript set filetype=javascript.jsx
 augroup END
