@@ -43,7 +43,7 @@ set isfname+=32
 set belloff+=ctrlg
 
 try
-    colorscheme spacegray
+    colorscheme solarized8
 catch
     colorscheme default
 endtry
@@ -52,7 +52,7 @@ endtry
 if has('gui_macvim')
   set guifont=Menlo:h14
   augroup LookandFeel
-    " autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
+    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | set bg=light | else | set bg=dark | endif
     autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
   augroup END
 endif
@@ -98,7 +98,6 @@ let g:ale_completion_tsserver_autoimport=1
 set omnifunc=ale#completion#OmniFunc
 let g:mucomplete#enable_auto_at_startup = 1
 let g:solarized_old_cursor_style = 1
-let g:solarized_italics = 1
 
 " Autocommands
 augroup Writing
