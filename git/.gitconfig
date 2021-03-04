@@ -2,7 +2,7 @@
 	email = cg433n@me.com
 	name = Christopher Green
 [core]
-	editor = vim
+	editor = nova -w
 [alias]
 	graph = log --graph --abbrev-commit --date=iso --all
 	list-tags = tag --sort version:refname -n10 -n
@@ -18,8 +18,8 @@
 [init]
 	templatedir = ~/.git_template
 [merge]
-	tool = gvimdiff
+	tool = opendiff -y
 [mergetool]
-	prompt = false
+	prompt = true
 [diff]
-	tool = vimdiff
+	tool = opendiff -y

@@ -42,20 +42,7 @@ set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
 set belloff+=ctrlg
 
-try
-    colorscheme xcodedark
-catch
-    colorscheme default
-endtry
-
-" macOS specific
-if has('gui_macvim')
-  set guifont=Menlo:h12
-  augroup LookandFeel
-    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | colorscheme xcodelight | else | colorscheme xcodedark | endif
-    autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
-  augroup END
-endif
+colorscheme default
 
 " Mappings
 map <Space> <Leader>
@@ -74,6 +61,7 @@ nnoremap <leader>u :CtrlPBuffer<cr>
 nnoremap <leader>g :CtrlPTag<cr>
 nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>s :Gstatus<cr>
+nnoremap <leader>n :NERDTreeToggle<cr>
 
 " Commands
 command! Bd :bn | :bd#
@@ -90,13 +78,24 @@ iabbrev <expr> [[]] strftime("[[%Y%m%d%H%M%S]]")
 packadd! matchit
 let g:netrw_banner = 0
 let g:markdown_folding = 1
-let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_user_command = {
+      \ 'types': {
+      \ 1: ['.git', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'],
+      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+      \ },
+      \ 'fallback': 'find %s -type f'
+      \ }
 let g:ctrlp_use_caching = 0
 let g:polyglot_disabled = ['markdown']
 let g:ale_completion_enabled=1
 let g:ale_completion_tsserver_autoimport=1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 set omnifunc=ale#completion#OmniFunc
-let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#enable_auto_at_startup=1
+let g:pandoc#folding#fdc=0
+let NERDTreeMinimalUI=1
+let g:jedi#popup_on_dot=0
 
 " Autocommands
 augroup Writing
@@ -106,7 +105,8 @@ augroup Writing
     autocmd FileType text setlocal foldmethod=indent
     autocmd FileType text,rst,markdown nnoremap <CR> :e <cfile><CR>
     autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
-    autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
+    " autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
+    autocmd FileType text,rmd,rst,markdown setlocal foldcolumn=0
 augroup END   
 
 augroup HiglightTODO
@@ -118,3 +118,4 @@ augroup FrontEnd
     autocmd!
     autocmd FileType javascript set filetype=javascript.jsx
 augroup END
+
