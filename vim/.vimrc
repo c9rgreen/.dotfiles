@@ -42,7 +42,11 @@ set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
 set belloff+=ctrlg
 
-colorscheme default
+try
+    colorscheme xcodedark
+catch
+    colorscheme default
+endtry
 
 " Mappings
 map <Space> <Leader>
@@ -87,15 +91,6 @@ let g:ctrlp_user_command = {
       \ }
 let g:ctrlp_use_caching = 0
 let g:polyglot_disabled = ['markdown']
-let g:ale_completion_enabled=1
-let g:ale_completion_tsserver_autoimport=1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-set omnifunc=ale#completion#OmniFunc
-let g:mucomplete#enable_auto_at_startup=1
-let g:pandoc#folding#fdc=0
-let NERDTreeMinimalUI=1
-let g:jedi#popup_on_dot=0
 
 " Autocommands
 augroup Writing
@@ -105,14 +100,9 @@ augroup Writing
     autocmd FileType text setlocal foldmethod=indent
     autocmd FileType text,rst,markdown nnoremap <CR> :e <cfile><CR>
     autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
-    " autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
+    autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
     autocmd FileType text,rmd,rst,markdown setlocal foldcolumn=0
 augroup END   
-
-augroup HiglightTODO
-    autocmd!
-    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
-augroup END
 
 augroup FrontEnd
     autocmd!

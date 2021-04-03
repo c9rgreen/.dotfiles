@@ -7,6 +7,7 @@
 	graph = log --graph --abbrev-commit --date=iso --all
 	list-tags = tag --sort version:refname -n10 -n
 	d = difftool
+    s = status
 [github]
 	user = cg433n
 [filter "lfs"]

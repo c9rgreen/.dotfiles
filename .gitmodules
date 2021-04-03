@@ -13,9 +13,12 @@
 [submodule "vim/.vim/pack/submodules/start/vim-hemisu"]
 	path = vim/.vim/pack/submodules/start/vim-hemisu
 	url = git@github.com:noahfrederick/vim-hemisu.git
-[submodule "vim/.vim/pack/submodules/start/ale"]
-	path = vim/.vim/pack/submodules/start/ale
-	url = git@github.com:dense-analysis/ale.git
-[submodule "vim/.vim/pack/submodules/start/space-vim-theme"]
-	path = vim/.vim/pack/submodules/start/space-vim-theme
-	url = git@github.com:liuchengxu/space-vim-theme.git
+[submodule "vim/.vim/pack/submodules/start/vim-unimpaired"]
+	path = vim/.vim/pack/submodules/start/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "vim/.vim/pack/submodules/start/vim-commentary"]
+	path = vim/.vim/pack/submodules/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "vim/.vim/pack/submodules/start/vim-colors-xcode"]
+	path = vim/.vim/pack/submodules/start/vim-colors-xcode
+	url = git@github.com:arzg/vim-colors-xcode.git
