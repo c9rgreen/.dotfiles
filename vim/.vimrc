@@ -41,11 +41,14 @@ set linespace=1
 set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
 set belloff+=ctrlg
+set mouse=a
+set termguicolors
+set guifont=RecursiveMonoLnrSt-Regular:h14
 
 try
-    colorscheme xcodedark
+  colorscheme solarized8
 catch
-    colorscheme default
+  colorscheme default
 endtry
 
 " Mappings
@@ -108,4 +111,3 @@ augroup FrontEnd
     autocmd!
     autocmd FileType javascript set filetype=javascript.jsx
 augroup END
-
