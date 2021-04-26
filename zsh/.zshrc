@@ -54,3 +54,4 @@ setopt INC_APPEND_HISTORY
 # precmd () {
 #   print -Pn "\e]0; %n@%m: %~\a"
 # }
+if [ -e /Users/cg433n/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/cg433n/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
