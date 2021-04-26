@@ -2,7 +2,7 @@
 	email = cg433n@me.com
 	name = Christopher Green
 [core]
-	editor = nova -w
+	editor = vim
 [alias]
 	graph = log --graph --abbrev-commit --date=iso --all
 	list-tags = tag --sort version:refname -n10 -n
