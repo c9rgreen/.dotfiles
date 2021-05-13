@@ -3,9 +3,10 @@
 ## Install
 
 - [Xcode](https://developer.apple.com/xcode/)
-- [Python](https://www.python.org/downloads/)
-- [NodeJS](https://nodejs.org/en/)
-- [Haskell](https://www.haskell.org/platform/mac.html)
-- [Pandoc](https://pandoc.org)
+- [Brew](https://brew.sh)
+- [MacVim](https://macvim-dev.github.io/macvim/)
 - [MacTex](https://www.tug.org/mactex/)
-- [Nix](https://nixos.org)
+- [Pandoc](https://pandoc.org)
+- [iTerm](https://iterm2.com)
+- [Docker](https://www.docker.com)
+- [Devilbox](https://devilbox.readthedocs.io/en/latest/)

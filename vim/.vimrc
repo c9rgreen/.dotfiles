@@ -21,7 +21,7 @@ set shiftwidth=0
 set diffopt=vertical
 set autowrite
 set autowriteall
-set shortmess+=I
+set shortmess+=Ic
 set noswapfile
 set showcmd
 set hlsearch
@@ -43,13 +43,25 @@ set isfname+=32
 set belloff+=ctrlg
 set mouse=a
 set termguicolors
-set guifont=RecursiveMonoLnrSt-Regular:h14
 
 try
-  colorscheme solarized8
+  colorscheme xcodedark
 catch
   colorscheme default
 endtry
+
+" macOS specific
+if has('gui_macvim')
+  set guifont=SFMono-Regular:h12
+
+  map <D-[> <<
+  map <D-]> >>
+
+  augroup LookandFeel
+    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | colorscheme xcodelight | else | colorscheme xcodedark | endif
+    autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
+  augroup END
+endif
 
 " Mappings
 map <Space> <Leader>
@@ -68,7 +80,6 @@ nnoremap <leader>u :CtrlPBuffer<cr>
 nnoremap <leader>g :CtrlPTag<cr>
 nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>s :Gstatus<cr>
-nnoremap <leader>n :NERDTreeToggle<cr>
 
 " Commands
 command! Bd :bn | :bd#
@@ -94,6 +105,8 @@ let g:ctrlp_user_command = {
       \ }
 let g:ctrlp_use_caching = 0
 let g:polyglot_disabled = ['markdown']
+let g:ale_completion_enabled = 1
+let g:Hexokinase_highlighters = ['sign_column']
 
 " Autocommands
 augroup Writing

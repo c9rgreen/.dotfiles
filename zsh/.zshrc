@@ -33,25 +33,29 @@ setopt EXTENDED_HISTORY
 setopt INC_APPEND_HISTORY
 
 # Vim keybindings
-#
-# function zle-keymap-select() {
-#   zle reset-prompt
-#   zle -R
-# }
-#
-# TRAPWINCH() {
-#   zle &&  zle -R
-# }
-#
-# zle -N zle-keymap-select
-# zle -N edit-command-line
-#
-# bindkey -v
-# autoload -Uz edit-command-line
-# bindkey -M vicmd 'v' edit-command-line
+
+function zle-keymap-select() {
+  zle reset-prompt
+  zle -R
+}
+
+TRAPWINCH() {
+  zle &&  zle -R
+}
+
+zle -N zle-keymap-select
+zle -N edit-command-line
+
+bindkey -v
+autoload -Uz edit-command-line
+bindkey -M vicmd 'v' edit-command-line
 
 # Window title
-# precmd () {
-#   print -Pn "\e]0; %n@%m: %~\a"
-# }
-if [ -e /Users/cg433n/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/cg433n/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+precmd () {
+  print -Pn "\e]0; %n@%m: %~\a"
+}
+
+# Aliases
+alias ls="ls -Gh"
+alias ll="ls -alGh"
+alias grep="grep --exclude-dir=node_modules"

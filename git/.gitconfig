@@ -19,8 +19,11 @@
 [init]
 	templatedir = ~/.git_template
 [merge]
-	tool = opendiff -y
+	tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
-	prompt = true
+	prompt = false
 [diff]
-	tool = opendiff -y
+	tool = vimdiff
+[difftool]
+	prompt = false
