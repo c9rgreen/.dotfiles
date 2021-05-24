@@ -44,23 +44,45 @@ set belloff+=ctrlg
 set mouse=a
 set termguicolors
 
-try
-  colorscheme xcodedark
-catch
-  colorscheme default
-endtry
+if has('gui_running')
+  " macOS specific
+  if has('gui_macvim')
+    function! MacTheme()
+      if v:os_appearance == 1
+        set background=dark
+        colorscheme xcodedark
+        let g:airline_theme = "xcodedark"
+        " call IndentGuides(&background)
+      else
+        set background=light
+        colorscheme xcodelight
+        let g:airline_theme = "xcodelight"
+        " call IndentGuides(&background)
+      endif
+      call airline#extensions#tabline#buffers#invalidate()
+      AirlineRefresh
+    endfunction
 
-" macOS specific
-if has('gui_macvim')
-  set guifont=SFMono-Regular:h12
+    set guifont=SFMono-Regular:h12
+    let macvim_hig_shift_movement = 1
 
-  map <D-[> <<
-  map <D-]> >>
+    map <D-[> <<
+    map <D-]> >>
 
-  augroup LookandFeel
-    autocmd VimEnter,ColorScheme,BufEnter,OSAppearanceChanged * if v:os_appearance == 0 | colorscheme xcodelight | else | colorscheme xcodedark | endif
-    autocmd VimEnter,ColorScheme,BufEnter * highlight EndOfBuffer guifg=bg
-  augroup END
+    augroup LookandFeel
+      autocmd!
+      autocmd OSAppearanceChanged * call MacTheme()
+      autocmd VimEnter * highlight Visual guibg=MacSelectedTextBackgroundColor
+      autocmd VimEnter * highlight Comment gui=italic
+      autocmd ColorScheme * highlight EndOfBuffer guifg=bg
+    augroup END
+  endif
+else
+  try
+    colorscheme xcodedark
+  catch
+    colorscheme default
+  endtry
 endif
 
 " Mappings
@@ -118,7 +140,7 @@ augroup Writing
     autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
     autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
     autocmd FileType text,rmd,rst,markdown setlocal foldcolumn=0
-augroup END   
+augroup END
 
 augroup FrontEnd
     autocmd!

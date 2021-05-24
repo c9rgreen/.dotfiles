@@ -1,6 +1,7 @@
 # To install these dependencies, run `brew bundle`
 
-# Helper tools
+# Helper eools
+brew "nvim"
 brew "tmux"
 brew "stow"
 brew "tig"

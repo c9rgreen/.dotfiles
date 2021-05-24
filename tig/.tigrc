@@ -1,0 +1,5 @@
+set refresh-mode = periodic
+set refresh-interval = 1
+color cursor black green bold
+color title-focus black blue bold
+color title-blur default black
