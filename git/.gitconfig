@@ -4,10 +4,11 @@
 [core]
 	editor = vim
 [alias]
-	graph = log --graph --abbrev-commit --date=iso --all
-	list-tags = tag --sort version:refname -n10 -n
+	g = log --graph --abbrev-commit --date=iso --all
+	t = tag --sort version:refname -n10 -n
 	d = difftool
     s = status
+	r = ls-remote
 [github]
 	user = cg433n
 [filter "lfs"]

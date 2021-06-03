@@ -9,6 +9,7 @@ set omnifunc=syntaxcomplete#Complete
 set infercase
 set nowrap
 set linebreak
+set breakindent
 set incsearch
 set hidden
 set guioptions=mc
@@ -66,8 +67,12 @@ if has('gui_running')
     set guifont=SFMono-Regular:h12
     let macvim_hig_shift_movement = 1
 
-    map <D-[> <<
-    map <D-]> >>
+    inoremap <D-[> <C-d>
+    inoremap <D-]> <C-t>
+    nnoremap <D-[> <<
+    nnoremap <D-]> >>
+    vnoremap <D-[> <<
+    vnoremap <D-]> >>
 
     augroup LookandFeel
       autocmd!
@@ -129,6 +134,9 @@ let g:ctrlp_use_caching = 0
 let g:polyglot_disabled = ['markdown']
 let g:ale_completion_enabled = 1
 let g:Hexokinase_highlighters = ['sign_column']
+let g:airline#extensions#wordcount#filetypes =
+      \ ['asciidoc', 'help', 'mail', 'markdown', 'nroff', 'org', 'plaintex', 'rst', 'tex', 'text', 'pandoc']
+
 
 " Autocommands
 augroup Writing
@@ -140,6 +148,7 @@ augroup Writing
     autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
     autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
     autocmd FileType text,rmd,rst,markdown setlocal foldcolumn=0
+    autocmd BufRead,BufNewFile *.otl   setfiletype votl
 augroup END
 
 augroup FrontEnd
