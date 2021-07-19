@@ -19,9 +19,6 @@ brew "potrace"
 brew "awscli"
 brew "pandoc"
 
-tap "mczachurski/wallpapper"
-brew "wallpapper"
-
 # Languages
 brew "node@14"
 brew "python@3.9"
