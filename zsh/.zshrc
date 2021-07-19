@@ -34,21 +34,21 @@ setopt INC_APPEND_HISTORY
 
 # Vim keybindings
 
-function zle-keymap-select() {
-  zle reset-prompt
-  zle -R
-}
-
-TRAPWINCH() {
-  zle &&  zle -R
-}
-
-zle -N zle-keymap-select
-zle -N edit-command-line
-
-bindkey -v
-autoload -Uz edit-command-line
-bindkey -M vicmd 'v' edit-command-line
+# function zle-keymap-select() {
+#   zle reset-prompt
+#   zle -R
+# }
+# 
+# TRAPWINCH() {
+#   zle &&  zle -R
+# }
+# 
+# zle -N zle-keymap-select
+# zle -N edit-command-line
+# 
+# bindkey -v
+# autoload -Uz edit-command-line
+# bindkey -M vicmd 'v' edit-command-line
 
 # Window title
 precmd () {
@@ -59,27 +59,4 @@ precmd () {
 alias ls="ls -Gh"
 alias ll="ls -alGh"
 alias grep="grep --exclude-dir=node_modules --exclude-dir=venv"
-
-# Environmental variables
-WORDCHARS='*?[]~&;!$%^<>'
-GREP_OPTIONS='--color=auto'
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000000
-SAVEHIST=10000000
-EDITOR='vim'
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-EDITOR='mvim -f'
-PATH="/Applications/MacVim.app/Contents/bin:$PATH"
-PATH="/Applications/LilyPond.app/Contents/Resources/bin:$PATH"
-PATH="/opt/npm/bin:$PATH"
-PATH="/opt/cisco/anyconnect/bin:$PATH"
-PATH="/$HOME/Library/Python/3.9/bin:$PATH"
-PATH="/opt/homebrew/bin:$PATH"
-PATH="/opt/homebrew/sbin:$PATH"
-fi
-
-# Plugins
-source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-source "$HOME/.zsh/zsh-completions/zsh-completions.plugin.zsh"
-source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+alias pip="pip3"

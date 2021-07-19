@@ -1,13 +1,11 @@
 [user]
-	email = cg433n@me.com
+	email = christopher.j.green@icloud.com
 	name = Christopher Green
-[core]
-	editor = vim
 [alias]
 	g = log --graph --abbrev-commit --date=iso --all
 	t = tag --sort version:refname -n10 -n
 	d = difftool
-    s = status
+  s = status
 	r = ls-remote
 [github]
 	user = cg433n
@@ -16,15 +14,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-
 [init]
 	templatedir = ~/.git_template
-[merge]
-	tool = vimdiff
-	conflictstyle = diff3
-[mergetool]
-	prompt = false
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
+[core]
+	editor = nova -w

@@ -31,7 +31,7 @@ set wildignore+=*.git,*venv/*,*node_modules/*,*vendor/*,*__pycache__/*,*.aux,*.c
 set wildignorecase
 set autoread
 set spelllang=en_us
-set sidescrolloff=5
+set sidescrolloff=0
 set scrolloff=5
 set tags^=./.git/tags
 set laststatus=2
@@ -43,25 +43,21 @@ set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
 set belloff+=ctrlg
 set mouse=a
-set termguicolors
+set number
 
 if has('gui_running')
   " macOS specific
   if has('gui_macvim')
-    function! MacTheme()
+    function! MacAppearance()
       if v:os_appearance == 1
         set background=dark
         colorscheme xcodedark
         let g:airline_theme = "xcodedark"
-        " call IndentGuides(&background)
       else
         set background=light
         colorscheme xcodelight
         let g:airline_theme = "xcodelight"
-        " call IndentGuides(&background)
       endif
-      call airline#extensions#tabline#buffers#invalidate()
-      AirlineRefresh
     endfunction
 
     set guifont=SFMono-Regular:h12
@@ -76,23 +72,22 @@ if has('gui_running')
 
     augroup LookandFeel
       autocmd!
-      autocmd OSAppearanceChanged * call MacTheme()
+      autocmd OSAppearanceChanged * call MacAppearance()
       autocmd VimEnter * highlight Visual guibg=MacSelectedTextBackgroundColor
       autocmd VimEnter * highlight Comment gui=italic
       autocmd ColorScheme * highlight EndOfBuffer guifg=bg
     augroup END
   endif
 else
-  try
-    colorscheme xcodedark
-  catch
-    colorscheme default
-  endtry
+  colorscheme default
 endif
 
+" Abbreviations
+iabbrev ,, <>
+iabbrev <expr> :date: strftime("%Y-%m-%d")
+iabbrev <expr> [[]] strftime("[[%Y%m%d%H%M%S]]")
+
 " Mappings
-map <Space> <Leader>
-map gf :e <cfile><CR>
 noremap <silent> k gk
 noremap <silent> j gj
 vnoremap < <gv
@@ -102,11 +97,6 @@ nnoremap <leader>i <C-I>
 nnoremap <leader>e :edit **/*
 nnoremap <leader>h gqip$
 nnoremap <leader>a :tag *
-nnoremap - :Ex<cr>
-nnoremap <leader>u :CtrlPBuffer<cr>
-nnoremap <leader>g :CtrlPTag<cr>
-nnoremap <leader>p :CtrlP<cr>
-nnoremap <leader>s :Gstatus<cr>
 
 " Commands
 command! Bd :bn | :bd#
@@ -115,28 +105,14 @@ command! Lcd :lcd %:p:h
 command! HardWrap if &fo =~ 'a' | setlocal fo-=a | else | setlocal fo+=a | endif
 command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :cc
 
-" Abbreviations
-iabbrev <expr> :date: strftime("%Y-%m-%d")
-iabbrev <expr> [[]] strftime("[[%Y%m%d%H%M%S]]")
-
 " Packages
 packadd! matchit
 let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 let g:markdown_folding = 1
-let g:ctrlp_user_command = {
-      \ 'types': {
-      \ 1: ['.git', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'],
-      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-      \ },
-      \ 'fallback': 'find %s -type f'
-      \ }
-let g:ctrlp_use_caching = 0
-let g:polyglot_disabled = ['markdown']
-let g:ale_completion_enabled = 1
-let g:Hexokinase_highlighters = ['sign_column']
-let g:airline#extensions#wordcount#filetypes =
-      \ ['asciidoc', 'help', 'mail', 'markdown', 'nroff', 'org', 'plaintex', 'rst', 'tex', 'text', 'pandoc']
-
 
 " Autocommands
 augroup Writing
@@ -154,4 +130,14 @@ augroup END
 augroup FrontEnd
     autocmd!
     autocmd FileType javascript set filetype=javascript.jsx
+augroup END
+
+" augroup FileBrowser
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+
+augroup TurnOffColors
+  autocmd!
+  autocmd BufEnter * syntax off
 augroup END
