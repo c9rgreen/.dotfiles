@@ -40,6 +40,7 @@ precmd () {
 # Aliases
 alias ls="ls -Gh"
 alias ll="ls -alGh"
+alias nano="nano -m"
 alias grep="grep --exclude-dir=node_modules --exclude-dir=venv"
 alias pip="pip3"
 alias python="python3"
