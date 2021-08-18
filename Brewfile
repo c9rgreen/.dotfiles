@@ -20,6 +20,7 @@ brew "potrace"
 brew "awscli"
 brew "pandoc"
 brew "pwgen"
+cask "ngrok"
 
 # Languages
 brew "node@14"
