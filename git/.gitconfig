@@ -4,7 +4,7 @@
 [alias]
 	g = log --graph --abbrev-commit --date=iso --all
 	t = tag --sort version:refname -n10 -n
-	d = difftool
+	d = diff
 	s = status
 	r = ls-remote
 [github]
@@ -14,3 +14,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[core]
+	editor = nova -w
