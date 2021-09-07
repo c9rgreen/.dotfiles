@@ -20,9 +20,9 @@ brew "potrace"
 brew "awscli"
 brew "pandoc"
 brew "pwgen"
-brew "multipass"
 brew "minikube"
 brew "podman"
+cask "multipass"
 cask "ngrok"
 
 # Languages
