@@ -6,7 +6,10 @@
 	t = tag --sort version:refname -n10 -n
 	d = diff
 	s = status
-	r = ls-remote
+	r = ls-remote --heads
+	p = push
+	u = pull
+	c = commit
 [github]
 	user = cg433n
 [filter "lfs"]
