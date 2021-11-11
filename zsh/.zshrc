@@ -25,17 +25,47 @@ setopt share_history
 
 setopt menu_complete
 setopt no_list_ambiguous
-autoload -Uz compinit
-compinit
 zstyle ':completion:*' menu yes select
 
 setopt EXTENDED_HISTORY
 setopt INC_APPEND_HISTORY
 
+# Vim keybindings
+
+# function zle-keymap-select() {
+#   zle reset-prompt
+#   zle -R
+# }
+# 
+# TRAPWINCH() {
+#   zle &&  zle -R
+# }
+# 
+# zle -N zle-keymap-select
+# zle -N edit-command-line
+# 
+# bindkey -v
+# autoload -Uz edit-command-line
+# bindkey -M vicmd 'v' edit-command-line
+
+
 # Window title
 precmd () {
   print -Pn "\e]0; %n@%m: %~\a"
 }
+
+# Plugins
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if type brew &>/dev/null; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    
+    # autoload -Uz compinit
+    # compinit
+  fi
+fi
 
 # Aliases
 alias ls="ls -Gh"

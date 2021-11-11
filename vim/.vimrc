@@ -98,6 +98,13 @@ nnoremap <leader>e :edit **/*
 nnoremap <leader>h gqip$
 nnoremap <leader>a :tag *
 
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+\ "\<lt>C-n>" :
+\ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+\ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+\ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
+
 " Commands
 command! Bd :bn | :bd#
 command! Cd :cd %:p:h
@@ -137,7 +144,7 @@ augroup END
 "   autocmd VimEnter * :Vexplore
 " augroup END
 
-augroup TurnOffColors
-  autocmd!
-  autocmd BufEnter * syntax off
-augroup END
+"augroup TurnOffColors
+"  autocmd!
+"  autocmd BufEnter * syntax off
+"augroup END

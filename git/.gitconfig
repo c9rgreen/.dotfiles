@@ -1,5 +1,5 @@
 [user]
-	email = christopher.j.green@icloud.com
+	email = cgreen@saguaro.space
 	name = Christopher Green
 [alias]
 	g = log --graph --abbrev-commit --date=iso --all
@@ -18,4 +18,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [core]
-	editor = nova -w
+	editor = emacs
+	
