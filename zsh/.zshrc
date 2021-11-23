@@ -48,6 +48,11 @@ setopt INC_APPEND_HISTORY
 # autoload -Uz edit-command-line
 # bindkey -M vicmd 'v' edit-command-line
 
+# Edit command in external editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 
 # Window title
 precmd () {
@@ -62,8 +67,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
     
-    # autoload -Uz compinit
-    # compinit
+    autoload -Uz compinit
+    compinit
   fi
 fi
 
