@@ -10,6 +10,7 @@ tap "saguarospace/saguarospace"
 # Saguaro Space
 brew "typescript-language-server"
 brew "vls"
+brew "vscode-css-languageserver"
 
 # Hashicorp
 cask "vagrant"
