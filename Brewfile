@@ -5,6 +5,11 @@
 
 tap "homebrew/cask"
 tap "hashicorp/tap"
+tap "saguarospace/saguarospace"
+
+# Saguaro Space
+brew "typescript-language-server"
+brew "vls"
 
 # Hashicorp
 cask "vagrant"
