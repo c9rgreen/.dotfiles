@@ -3,7 +3,7 @@ GREP_OPTIONS='--color=auto'
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
-EDITOR='nova -w'
+EDITOR='bbedit --wait'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 PATH="$HOME/.npm/bin:$PATH"
