@@ -11,6 +11,7 @@ tap "saguarospace/saguarospace"
 brew "typescript-language-server"
 brew "vls"
 brew "vscode-css-languageserver"
+brew "jedi-language-server"
 
 # Hashicorp
 cask "vagrant"
@@ -18,6 +19,7 @@ brew "terraform"
 brew "packer"
 
 # Packages
+brew "pass"
 brew "stow"
 brew "jq"
 brew "ffmpeg"
@@ -48,7 +50,7 @@ brew "zsh-syntax-highlighting"
 
 # Languages
 brew "node@14"
-brew "python@3.9"
+brew "python@3.10"
 brew "ruby"
 brew "go"
 
@@ -57,8 +59,9 @@ cask "ngrok"
 cask "multipass"
 cask "bbedit"
 cask "hype"
+cask "firefox"
 cask "google-chrome"
-cask "omniplan"
+cask "devonthink"
 cask "omnigraffle"
 cask "affinity-photo"
 cask "affinity-designer"
