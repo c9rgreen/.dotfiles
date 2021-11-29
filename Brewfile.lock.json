@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "a68d00f1bddadeabe9a9fdbb2e70faa0465cf458"
+        "revision": "ee822812eebe849de2c418b8076cc923f60c5350"
       },
       "hashicorp/tap": {
         "revision": "dfcae9f172aad22bd358f7687496936a401cde5f"
@@ -15,6 +15,9 @@
       },
       "saguarospace/saguarospace": {
         "revision": "8695d6562421957267a44cb17321bed6a6f79bfb"
+      },
+      "homebrew/cask-versions": {
+        "revision": "4ff6801350f4a9c777bfda1fcdd7286b8da9eda5"
       }
     },
     "cask": {
@@ -190,6 +193,18 @@
         "version": "19.3.2.206",
         "options": {
           "full_name": "filemaker-pro"
+        }
+      },
+      "vagrant-vmware-utility": {
+        "version": "1.0.21",
+        "options": {
+          "full_name": "vagrant-vmware-utility"
+        }
+      },
+      "vmware-fusion-tech-preview": {
+        "version": "16530630",
+        "options": {
+          "full_name": "vmware-fusion-tech-preview"
         }
       }
     },
@@ -1856,6 +1871,45 @@
             }
           }
         }
+      },
+      "fzf": {
+        "version": "0.28.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428",
+              "sha256": "f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428"
+            },
+            "arm64_big_sur": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428",
+              "sha256": "f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428"
+            },
+            "monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74",
+              "sha256": "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+            },
+            "big_sur": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74",
+              "sha256": "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+            },
+            "catalina": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74",
+              "sha256": "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:055d03f36d01613b6b46fb1dfd5c8ab845639afb6c564388baf2fa8363838281",
+              "sha256": "055d03f36d01613b6b46fb1dfd5c8ab845639afb6c564388baf2fa8363838281"
+            }
+          }
+        }
       }
     }
   },
@@ -1870,9 +1924,9 @@
         "macOS": "11.6"
       },
       "monterey": {
-        "HOMEBREW_VERSION": "3.3.5-61-g4c3f325",
+        "HOMEBREW_VERSION": "3.3.6-2-gd9b7c20",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "bd711d3a05e9ca60e204d387cd7dc2b3170afa70",
+        "Homebrew/homebrew-core": "7e1d5046945620245be075f23caf2d23646ee3e3",
         "CLT": "13.1.0.0.1.1633545042",
         "Xcode": "13.1",
         "macOS": "12.0.1"
