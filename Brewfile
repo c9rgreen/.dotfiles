@@ -1,8 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# To install these dependencies, run `brew bundle`
-
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "hashicorp/tap"
@@ -70,9 +68,3 @@ cask "affinity-publisher"
 cask "mactex-no-gui"
 cask "filemaker-pro"
 cask "vmware-fusion-tech-preview"
-
-# How do I use the VMware Fusion Tech Preview?
-# https://www.vagrantup.com/docs/providers/vmware/faq
-
-# Vagrant and VMWare Tech Preview on Apple M1 Pro
-# https://gist.github.com/sbailliez/f22db6434ac84eccb6d3c8833c85ad92

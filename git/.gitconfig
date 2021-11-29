@@ -5,6 +5,7 @@
 	g = log --graph --abbrev-commit --date=iso --all
 	t = tag --sort version:refname -n10 -n
 	d = diff
+	dt = difftool --dir-diff
 	s = status
 	r = ls-remote --heads
 	p = push
@@ -19,4 +20,13 @@
 	smudge = git-lfs smudge -- %f
 [core]
 	editor = bbedit --wait
-	
+[diff]
+	tool = bbdiff
+[difftool]
+	prompt = false
+[difftool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = bbdiff
+[mergetool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
