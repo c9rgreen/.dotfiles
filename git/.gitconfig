@@ -11,6 +11,7 @@
 	p = push
 	u = pull
 	c = commit
+	st = "!showci () { rev=${1:-HEAD}; git difftool --dir-diff $rev~1 $rev; }; showci $1"
 [github]
 	user = cg433n
 [filter "lfs"]
