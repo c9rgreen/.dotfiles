@@ -31,3 +31,5 @@
 	tool = bbdiff
 [mergetool "bbdiff"]
 	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+[pull]
+	ff = only
