@@ -33,3 +33,5 @@
 	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
