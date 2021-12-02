@@ -11,6 +11,7 @@ brew "typescript-language-server"
 brew "vls"
 brew "vscode-css-languageserver"
 brew "jedi-language-server"
+brew "saguarospace-bbedit-utils"
 
 # Hashicorp
 cask "vagrant"
