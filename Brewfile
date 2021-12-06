@@ -18,6 +18,10 @@ cask "vagrant"
 cask "vagrant-vmware-utility"
 brew "terraform"
 brew "packer"
+brew "terraform-ls"
+
+# Setting up terraform-ls with BBEdit
+# https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md
 
 # Packages
 brew "pass"
@@ -49,6 +53,10 @@ brew "zsh-autosuggestions"
 brew "zsh-history-substring-search"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+brew "rancher-cli"
+brew "hub"
+brew "lab"
+brew "glab"
 
 # Languages
 brew "node@14"
@@ -59,6 +67,7 @@ brew "go"
 # Apps
 cask "ngrok"
 cask "bbedit"
+cask "gitup"
 cask "hype"
 cask "firefox"
 cask "google-chrome"
