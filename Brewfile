@@ -5,6 +5,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "hashicorp/tap"
 tap "saguarospace/saguarospace"
+tap "iterate-ch/cyberduck"
 
 # Saguaro Space
 brew "typescript-language-server"
@@ -22,6 +23,10 @@ brew "terraform-ls"
 
 # Setting up terraform-ls with BBEdit
 # https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md
+
+# Cyberduck
+brew "duck"
+cask "cyberduck"
 
 # Packages
 brew "pass"
@@ -70,7 +75,8 @@ cask "bbedit"
 cask "gitup"
 cask "hype"
 cask "firefox"
-cask "google-chrome"
+cask "microsoft-edge"
+cask "microsoft-teams"
 cask "devonthink"
 cask "omnigraffle"
 cask "affinity-photo"
@@ -80,3 +86,4 @@ cask "mactex-no-gui"
 cask "filemaker-pro"
 cask "vmware-fusion-tech-preview"
 cask "docker"
+cask "anki"
