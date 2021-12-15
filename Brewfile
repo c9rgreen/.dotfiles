@@ -73,6 +73,7 @@ brew "go"
 # Apps
 cask "ngrok"
 cask "bbedit"
+cask "path-finder"
 cask "gitup"
 cask "hype"
 cask "firefox"
