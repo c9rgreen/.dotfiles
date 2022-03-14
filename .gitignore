@@ -5,3 +5,4 @@ tags
 vim/.vim/spell/
 vim/.vim/pack/local/
 vim/.vim/thesaurus/
+.Brewfile.lock.json
