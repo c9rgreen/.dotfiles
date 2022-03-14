@@ -1,3 +1,14 @@
+" ┌───────────────────────────────────────┐
+" │                  Vim                  │
+" │            https://vim.org            │
+" └───────────────────────────────────────┘
+
+" I use two vim plugins.
+" 1. Editorconfig: https://editorconfig.org
+" 2. Dim: https://jeffkreeftmeijer.com/vim-16-color/
+
+" Other great Vim colorschemes: https://vimcolorschemes.com
+
 filetype plugin indent on
 syntax enable
 
@@ -45,42 +56,7 @@ set belloff+=ctrlg
 set mouse=a
 set number
 
-if has('gui_running')
-  " macOS specific
-  if has('gui_macvim')
-    function! MacAppearance()
-      if v:os_appearance == 1
-        set background=dark
-        colorscheme xcodedark
-        let g:airline_theme = "xcodedark"
-      else
-        set background=light
-        colorscheme xcodelight
-        let g:airline_theme = "xcodelight"
-      endif
-    endfunction
-
-    set guifont=SFMono-Regular:h12
-    let macvim_hig_shift_movement = 1
-
-    inoremap <D-[> <C-d>
-    inoremap <D-]> <C-t>
-    nnoremap <D-[> <<
-    nnoremap <D-]> >>
-    vnoremap <D-[> <<
-    vnoremap <D-]> >>
-
-    augroup LookandFeel
-      autocmd!
-      autocmd OSAppearanceChanged * call MacAppearance()
-      autocmd VimEnter * highlight Visual guibg=MacSelectedTextBackgroundColor
-      autocmd VimEnter * highlight Comment gui=italic
-      autocmd ColorScheme * highlight EndOfBuffer guifg=bg
-    augroup END
-  endif
-else
-  colorscheme default
-endif
+colorscheme dim
 
 " Abbreviations
 iabbrev ,, <>
@@ -121,7 +97,20 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:markdown_folding = 1
 
-" Autocommands
+" From https://github.com/jeffkreeftmeijer/vim-nightfall
+function UpdateBackground()
+  if system("defaults read -g AppleInterfaceStyle") == "Dark\n"
+    if &bg == "light" | set bg=dark | endif
+  else
+    if &bg == "dark" | set bg=light | endif
+  endif 
+endfunction
+
+augroup nightfall
+  autocmd!
+  autocmd FocusGained,BufEnter * call UpdateBackground()
+augroup END
+
 augroup Writing
     autocmd!
     autocmd FileType text,rst,markdown setlocal spell
@@ -131,20 +120,9 @@ augroup Writing
     autocmd FileType text,rst,markdown nnoremap <BS> :bp<CR>
     autocmd Syntax markdown syn match markdownUnderscoreNoop /_/
     autocmd FileType text,rmd,rst,markdown setlocal foldcolumn=0
-    autocmd BufRead,BufNewFile *.otl   setfiletype votl
 augroup END
 
 augroup FrontEnd
     autocmd!
     autocmd FileType javascript set filetype=javascript.jsx
 augroup END
-
-" augroup FileBrowser
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
-
-"augroup TurnOffColors
-"  autocmd!
-"  autocmd BufEnter * syntax off
-"augroup END

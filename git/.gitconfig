@@ -1,26 +1,36 @@
+# ┌──────────────────────────────────────┐
+# │                 Git                  │
+# │ https://git-scm.com/docs/git-config  │
+# └──────────────────────────────────────┘
+
 [user]
 	email = cgreen@saguaro.space
 	name = Christopher Green
 [alias]
-	g = log --graph --abbrev-commit --date=iso --all
+	# Fancier git log
+	g = log --graph --abbrev-commit --date=iso --all --decorate --oneline --color
+	
+	# Show the last ten tags
 	t = tag --sort version:refname -n10 -n
+	
+	# Show diff
 	d = diff
+	
+	# --dir-diff
+	# Copy the modified files to a temporary location and perform a directory diff on them.
 	dt = difftool --dir-diff
+	
+	# List all remote branches
+	r = ls-remote --heads	
+	
+	# Show the working tree status
 	s = status
-	r = ls-remote --heads
-	p = push
-	u = pull
-	c = commit
+	
+	# git st opens a diff in difftool between the two last revisions.
+	# https://stackoverflow.com/questions/17558221/how-can-i-view-the-output-of-git-show-in-a-diff-viewer-like-meld-kdiff3-etc
 	st = "!showci () { rev=${1:-HEAD}; git difftool --dir-diff $rev~1 $rev; }; showci $1"
 [github]
 	user = cg433n
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-[core]
-	editor = bbedit --wait
 [diff]
 	tool = bbdiff
 [difftool]
@@ -32,6 +42,8 @@
 [mergetool "bbdiff"]
 	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
 [pull]
+	# Only update to the new history if there is no divergent local history.
 	ff = only
 [init]
+	# `main` should be the default branch (rather than `master`)
 	defaultBranch = main

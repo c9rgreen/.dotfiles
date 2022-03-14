@@ -1,5 +1,34 @@
+# ┌───────────────────────────────────────┐
+# │                  Tig                  │
+# │     https://jonas.github.io/tig/      │
+# └───────────────────────────────────────┘
+
+# https://jonas.github.io/tig/doc/tigrc.5.html
+# Default configuration file is https://github.com/jonas/tig/blob/master/tigrc
+# Configuration examples: https://github.com/search?q=tigrc+mouse&type=code
+
+# Compact display and ISO 8601 dates for main view.
+set main-view = date:default author:full,width=0,maxwidth=10 commit-title:yes,graph,refs,overflow=no
+set main-view-date = custom
+set main-view-date-format = "%Y-%m-%d %H:%M"
+
+# When set to periodic, visible views are refreshed periodically using refresh-interval (seconds).
 set refresh-mode = periodic
-set refresh-interval = 1
-color cursor white blue bold
-color title-focus yellow black bold
-color title-blur white black
+set refresh-interval = 3
+
+# Enable mouse support.
+set mouse = 1
+set mouse-scroll = 1
+set mouse-wheel-cursor = true
+
+# Don't show untracked directories contents in the status view.
+set status-show-untracked-dirs = false
+
+# The cursor is the selected line.
+color cursor black white bold
+
+# Focused window pane title
+color title-focus black yellow bold
+
+# Unfocused window pane title
+color title-blur black green
