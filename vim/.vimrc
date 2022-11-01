@@ -135,6 +135,8 @@ imap <C-@> <C-Space>
 
 " Add row of ===== below current line
 nnoremap <leader>1 yypVr=
+nnoremap <leader>2 yypVr-
+nnoremap <leader>3 yypVr*
 
 " CtrlP mappings
 nnoremap <leader>p :CtrlP<CR> 
@@ -158,9 +160,7 @@ command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :
 packadd! matchit
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 4
 let g:netrw_altv = 1
-let g:netrw_winsize = 25
 let g:markdown_folding = 1
 let g:ctrlp_user_command = {
             \ 'types': {
