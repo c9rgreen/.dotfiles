@@ -5,12 +5,37 @@
 ║                                                  ║
 ╚══════════════════════════════════════════════════╝
 
-Requires Homebrew. To install dependencies, run `brew bundle`.
+Last updated 2022-11-01.
 
-Last updated 2022-03-13.
-              
-Installing
-----------
+Manually installed
+==================
 
-1. Install `stow` with Homebrew. (Run `brew bundle`).
-2. From within the .dotfiles directory, run `stow [dirname]` to symlink the dotfiles in that directory to $HOME.
+* Affinity Designer.app
+* Affinity Photo.app
+* Affinity Publisher.app
+* BBEdit.app
+* DEVONthink 3.app
+* Dash.app
+* Equinox.app
+* Fantastical.app
+* FileMaker Pro.app
+* Flashtex.app
+* GraphicConverter 11.app
+* Hype4.app
+* MacVim.app
+* Monodraw.app
+* Multipass.app
+* OmniGraffle.app
+* OmniPlan.app
+* Sketch.app
+* Vectornator.app
+* Xcode.app
+* MacPorts
+* MacTex
+* Node
+* Python
+
+Install ports
+=============
+
+% make install

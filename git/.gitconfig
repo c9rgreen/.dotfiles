@@ -36,11 +36,13 @@
 [difftool]
 	prompt = false
 [difftool "bbdiff"]
-	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+    cmd = bbdiff --wait --resume "$LOCAL" "$REMOTE"
 [merge]
-	tool = bbdiff
+    tool = bbdiff
+[mergetool]
+    prompt = false
 [mergetool "bbdiff"]
-	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+    cmd = bbdiff --wait --resume "$LOCAL" "$REMOTE"
 [pull]
 	# Only update to the new history if there is no divergent local history.
 	ff = only

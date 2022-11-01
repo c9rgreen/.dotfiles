@@ -54,6 +54,18 @@ setopt HIST_IGNORE_SPACE
 # line into the editing buffer.
 setopt HIST_VERIFY
 
+# Location of zsh history file. Redundant on macOS.
+export HISTFILE="$HOME/.zsh_history"
+
+# The maximum number of events stored in the internal history list. If
+# you use the HIST_EXPIRE_DUPS_FIRST option, setting this value larger
+# than the SAVEHIST size will give you the difference as a cushion for
+# saving duplicated history events.
+export HISTSIZE=10000000
+
+# The maximum number of history events to save in the history file.
+export SAVEHIST=10000000
+
 # This option both imports new commands from the history file, and also
 # causes your typed commands to be appended to the history file (the
 # latter is like specifying INC_APPEND_HISTORY, which should be turned
@@ -68,6 +80,14 @@ setopt MENU_COMPLETE
 
 # Display a dropdown-list style menu for completions.
 zstyle ':completion:*' menu yes select
+
+# Autocompletions
+autoload -Uz compinit
+compinit
+
+# Bash autocompletions
+autoload bashcompinit
+bashcompinit
 
 # vi keybindings
 
@@ -92,58 +112,48 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
-# Plugins installed via Homebrew
-#        ┌───────────┐       
-#        │ Is macOS? │       
-#        └───────────┘       
-#              │             
-#              ▼             
-# ┌─────────────────────────┐
-# │ Homebrew is installed?  │
-# └─────────────────────────┘
-#              │             
-#              ▼             
-#      ┌───────────────┐     
-#      │ Load plugins  │     
-#      └───────────────┘     
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if type brew &>/dev/null; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-    
-    autoload -Uz compinit
-    compinit
-  fi
-fi
-
 # Aliases
 alias ls="ls -Gh"
-alias ll="ls -alGh"
-alias nano="nano -m"
-alias grep="grep --exclude-dir=node_modules --exclude-dir=venv"
-alias tree="tree --gitignore -I node_modules -I venv -C"
+alias grep="grep --exclude-dir=node_modules --exclude-dir=venv --exclude-dir=.git"
+alias mp="multipass"
+alias ctags="uctags" 
 alias pip="pip3"
 alias python="python3"
-alias tig="tig --all"
+alias history="history 1"
 
 # Functions
 # Source https://stackoverflow.com/questions/3358420/generating-a-sha-256-hash-from-the-linux-command-line
 sha256() { echo -n "$*" | shasum -a 256 }
 
 # Paths
-# macOS specific paths
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	# Load Homebrew paths.
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-		
-	# Location for global node modules. Avoids having to install with sudo.
-	export PATH="$HOME/.npm/bin:$PATH"
+    # Location for global node modules. Avoids having to install with sudo.
+    export PATH="$HOME/.npm/bin:$PATH"
+
+    # MacPorts
+    # https://guide.macports.org
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 	
-	# Cisco Anyconnect VPN path.
-	export PATH="/opt/cisco/anyconnect/bin:$PATH"
-	
-	# Set the path for Homebrew node explicitly, as Node 14 is an old version.
-	export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
+    # Cisco Anyconnect VPN path.
+    export PATH="/opt/cisco/anyconnect/bin:$PATH"
+
+    # Multipass. Used for multipass aliases.
+    export PATH="$HOME/Library/Application Support/multipass/bin:$PATH"
+
+    # MacVim
+    export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
+    
+    # Binaries not managed with a package manager
+    export PATH="$HOME/.bin:$PATH"
+    
+    # Multipass autocompletions
+    source /Library/Application\ Support/com.canonical.multipass/Resources/completions/bash/multipass
 fi
+
+if type port &>/dev/null; then
+    # Autosuggestions and syntax highlighting
+    source /opt/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+

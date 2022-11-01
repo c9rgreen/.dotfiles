@@ -32,3 +32,7 @@ color title-focus black yellow bold
 
 # Unfocused window pane title
 color title-blur black green
+
+# https://stackoverflow.com/questions/52542803/take-sha-number-of-commit-by-tig
+bind generic 9 +@sh -c "printf '%s' $(git rev-parse --short %(commit)) | pbcopy && echo Copied %(commit) to clipboard"
+

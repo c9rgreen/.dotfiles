@@ -1,14 +1,4 @@
-" ┌───────────────────────────────────────┐
-" │                  Vim                  │
-" │            https://vim.org            │
-" └───────────────────────────────────────┘
-
-" I use two vim plugins.
-" 1. Editorconfig: https://editorconfig.org
-" 2. Dim: https://jeffkreeftmeijer.com/vim-16-color/
-
-" Other great Vim colorschemes: https://vimcolorschemes.com
-
+" Options
 filetype plugin indent on
 syntax enable
 
@@ -49,17 +39,67 @@ set laststatus=2
 set statusline=%<[%{fnamemodify(getcwd(),':t')}]\ %f\ %h%m%r%{exists('g:loaded_fugitive')?fugitive#statusline():''}%=%-14.(%l,%c%V\ %L%)\ %P\ [%{wordcount().words}]
 set foldlevel=5
 set virtualedit=all
-set linespace=1
+set linespace=2
 set thesaurus=~/.vim/thesaurus/mthesaur.txt
 set isfname+=32
 set belloff+=ctrlg
 set mouse=a
 set number
+set cursorline
+set ttyfast
 
-colorscheme dim
+" LilyPond plugin
+set runtimepath+=/opt/local/share/lilypond/2.22.2/vim
+
+" set termguicolors
+set background=dark
+
+" Set map leader to <Space>
+let mapleader="\<Space>"
+
+if has('gui_running')
+    " macOS specific
+    if has('gui_macvim')
+        function! MacAppearance()
+            if v:os_appearance == 1
+                set background=dark
+                colorscheme base16-atelier-cave
+            else
+                set background=light
+                colorscheme base16-atelier-cave-light
+            endif
+        endfunction
+
+        set guifont=BerkeleyMono-Regular:h13
+
+        let macvim_hig_shift_movement = 1
+
+        " Indent/Outdent
+        inoremap <D-[> <C-d>
+        inoremap <D-]> <C-t>
+        nnoremap <D-[> <<
+        nnoremap <D-]> >>
+        vnoremap <D-[> <gv
+        vnoremap <D-]> >gv
+
+        " Toggle comments
+        inoremap <D-/> :Commentary<CR>
+        vnoremap <D-/> :Commentary<CR>
+        nnoremap <D-/> :Commentary<CR>
+
+        augroup LookandFeel
+            autocmd!
+            autocmd OSAppearanceChanged * call MacAppearance()
+            autocmd VimEnter * highlight Visual guibg=MacSelectedTextBackgroundColor
+            autocmd VimEnter * highlight Comment gui=italic
+            autocmd ColorScheme * highlight EndOfBuffer guifg=bg
+        augroup END
+    endif
+else
+    colorscheme base16-atelier-cave
+endif
 
 " Abbreviations
-iabbrev ,, <>
 iabbrev <expr> :date: strftime("%Y-%m-%d")
 iabbrev <expr> [[]] strftime("[[%Y%m%d%H%M%S]]")
 
@@ -68,18 +108,44 @@ noremap <silent> k gk
 noremap <silent> j gj
 vnoremap < <gv
 vnoremap > >gv
+
+" Jump backward
 nnoremap <leader>o <C-O>
+
+" Jump forward
 nnoremap <leader>i <C-I>
+
+" Edit
 nnoremap <leader>e :edit **/*
+
+" Hard wrap
 nnoremap <leader>h gqip$
+
+" Go to tag
 nnoremap <leader>a :tag *
 
+" Tab through auto-completion
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-\ "\<lt>C-n>" :
-\ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-\ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-\ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+            \ "\<lt>C-n>" :
+            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+" Trigger auto-completion with Ctrl-Space
 imap <C-@> <C-Space>
+
+" Add row of ===== below current line
+nnoremap <leader>1 yypVr=
+
+" CtrlP mappings
+nnoremap <leader>p :CtrlP<CR> 
+nnoremap <leader>b :CtrlPBuffer<CR> 
+nnoremap <leader>t :CtrlPBufTagAll<CR> 
+
+" Fugitive mappings
+nnoremap <leader>s :Git<CR>
+
+" Dash mappings
+nnoremap <leader>d :Dash<CR>
 
 " Commands
 command! Bd :bn | :bd#
@@ -92,24 +158,17 @@ command! Find :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :
 packadd! matchit
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
+" let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:markdown_folding = 1
-
-" From https://github.com/jeffkreeftmeijer/vim-nightfall
-function UpdateBackground()
-  if system("defaults read -g AppleInterfaceStyle") == "Dark\n"
-    if &bg == "light" | set bg=dark | endif
-  else
-    if &bg == "dark" | set bg=light | endif
-  endif 
-endfunction
-
-augroup nightfall
-  autocmd!
-  autocmd FocusGained,BufEnter * call UpdateBackground()
-augroup END
+let g:ctrlp_user_command = {
+            \ 'types': {
+            \ 1: ['.git', 'cd %s && git ls-files'],
+            \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+            \ },
+            \ 'fallback': 'find %s -type f'
+            \ }
 
 augroup Writing
     autocmd!
