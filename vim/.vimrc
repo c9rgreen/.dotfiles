@@ -51,9 +51,6 @@ set ttyfast
 " LilyPond plugin
 set runtimepath+=/opt/local/share/lilypond/2.22.2/vim
 
-" set termguicolors
-set background=dark
-
 " Set map leader to <Space>
 let mapleader="\<Space>"
 
@@ -63,10 +60,10 @@ if has('gui_running')
         function! MacAppearance()
             if v:os_appearance == 1
                 set background=dark
-                colorscheme base16-atelier-cave
+                colorscheme solarized8
             else
                 set background=light
-                colorscheme base16-atelier-cave-light
+                colorscheme solarized8
             endif
         endfunction
 
@@ -90,13 +87,17 @@ if has('gui_running')
         augroup LookandFeel
             autocmd!
             autocmd OSAppearanceChanged * call MacAppearance()
-            autocmd VimEnter * highlight Visual guibg=MacSelectedTextBackgroundColor
+            " autocmd VimEnter * highlight Visual guibg=MacSelectedTextBackgroundColor
             autocmd VimEnter * highlight Comment gui=italic
             autocmd ColorScheme * highlight EndOfBuffer guifg=bg
         augroup END
     endif
 else
-    colorscheme base16-atelier-cave
+    try
+        colorscheme solarized8
+    catch
+        colorscheme default
+    endtry
 endif
 
 " Abbreviations
