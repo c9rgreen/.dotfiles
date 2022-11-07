@@ -24,7 +24,8 @@ install:
 		proselint \
 		helm-3.10 \
 		kubectl-1.25 \
-		pandoc
+		pandoc \
+		stagit
 	# Global node modules
 	npm install --global \
 		typescript-language-server \
