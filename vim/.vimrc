@@ -94,6 +94,8 @@ if has('gui_running')
     endif
 else
     try
+        let g:solarized_use16=1
+        let g:solarized_termtrans=1
         colorscheme solarized8
     catch
         colorscheme default
