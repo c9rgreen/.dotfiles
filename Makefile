@@ -42,8 +42,9 @@ web:
 .PHONY: serve
 serve:
 	$(info "Serving website")
-	cd web && python3 -m http.server 8000python3 -m http.server 8000
+	cd web && python3 -m http.server 8000
 
 .PHONY: deploy
+deploy:
 	$(info "Deploy to Cloudflare")
 	wrangler pages publish web
