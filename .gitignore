@@ -4,3 +4,11 @@ ports/PortIndex
 ports/PortIndex.quick
 .netrwhist
 .zsh_history
+web/commit/*
+web/file/*
+web/files.html
+web/atom.xml
+web/log.html
+web/tags.xml
+web/refs.html
+web/fonts/*

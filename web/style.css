@@ -1,0 +1,53 @@
+:root {
+  --primary-color: #47b483;
+  --primary-color-darker: #478066;
+  --secondary-color: #2c3e50;
+  --secondary-color-light: #364c63;
+  --secondary-color-highlight: #5b7fa4;
+  --secondary-color-darker: #243342;
+  --text-color: #333;
+  --text-shadow: #e6e6e6;
+  --nav-inactive: white;
+  --nav-active: white;
+}
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+body {
+   font-family: "Berkley Mono", monospace;
+   font-weight: 100;
+}
+
+a {
+  color: var(--primary-color);
+  transition: color 0.2s ease;
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.line {
+    text-decoration: none;
+    padding-right: 1rem;
+}
+
+.line:hover {
+    background-color: var(--secondary-color-darker);
+    color: white;
+}
+
+@font-face {
+  font-family: "Berkley Mono";
+  font-weight: 100 200 300 400 500 600 700 800 900;
+  src: url("fonts/BerkeleyMonoVariable-Regular.woff2")
+    format("woff2-variations");
+}

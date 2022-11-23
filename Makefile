@@ -33,3 +33,17 @@ format:
 uninstall:
 	$(info "Run with sudo")
 	port -fp uninstall installed
+
+.PHONY: web
+web:
+	$(info "Generating stacic website")
+	cd web && stagit ..
+
+.PHONY: serve
+serve:
+	$(info "Serving website")
+	cd web && python3 -m http.server 8000python3 -m http.server 8000
+
+.PHONY: deploy
+	$(info "Deploy to Cloudflare")
+	wrangler pages publish web
