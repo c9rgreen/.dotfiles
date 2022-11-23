@@ -94,20 +94,19 @@ if has('gui_running')
         augroup END
     endif
 else
-    try
-        " let g:solarized_use16=1
-        " let g:solarized_termtrans=1
-        " let g:solarized_extra_hi_groups=1
-        " let g:solarized_italics=1
-        colorscheme base16-atelier-cave
-    catch
-        colorscheme default
-    endtry
-
-    augroup Colors
-        autocmd!
-        " autocmd ColorScheme * highlight! link Visual CursorLine
-    augroup END
+    if $TERM_PROGRAM=='Apple_Terminal'
+        try
+            colorscheme base16-atelier-cave
+        catch
+            colorscheme default
+        endtry
+    else
+        try
+            colorscheme dim
+        catch
+            colorscheme default
+        endtry
+    endif
 endif
 
 " Abbreviations
