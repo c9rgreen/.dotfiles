@@ -45,7 +45,7 @@ set isfname+=32
 set belloff+=ctrlg
 set mouse=a
 set number
-set cursorline
+set nocursorline
 set ttyfast
 
 " LilyPond plugin
@@ -97,10 +97,17 @@ else
     try
         let g:solarized_use16=1
         let g:solarized_termtrans=1
+        let g:solarized_extra_hi_groups=1
+        let g:solarized_italics=1
         colorscheme solarized8
     catch
         colorscheme default
     endtry
+
+    augroup Colors
+        autocmd!
+        autocmd ColorScheme * highlight! link Visual CursorLine
+    augroup END
 endif
 
 " Abbreviations
@@ -193,3 +200,4 @@ augroup FrontEnd
     autocmd!
     autocmd FileType javascript set filetype=javascript.jsx
 augroup END
+
