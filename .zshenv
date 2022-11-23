@@ -28,7 +28,8 @@ export GREP_OPTIONS='--color=auto'
 # "darwin" is macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # BBEdit is a nice text editor for macOS.
-  export EDITOR='bbedit --wait'
+  # export EDITOR='bbedit --wait'
+  export EDITOR='bbedit'
 else
   # The dark side.
   export EDITOR='vim'

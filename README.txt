@@ -1,41 +1,25 @@
-╔══════════════════════════════════════════════════╗
-║                                                  ║
-║              Christopher's Dotfiles              ║
-║               cgreen@saguaro.space               ║
-║                                                  ║
-╚══════════════════════════════════════════════════╝
+                                                
+                                                
+                                     _          
+        ___ __ _ _ __ ___  ___ _ __ ( )___      
+       / __/ _` | '__/ _ \/ _ \ '_ \|// __|     
+      | (_| (_| | | |  __/  __/ | | | \__ \     
+       \___\__, |_|  \___|\___|_| |_| |___/     
+           |___/                                
+            _       _    __ _ _                 
+         __| | ___ | |_ / _(_) | ___  ___       
+        / _` |/ _ \| __| |_| | |/ _ \/ __|      
+       | (_| | (_) | |_|  _| | |  __/\__ \      
+        \__,_|\___/ \__|_| |_|_|\___||___/      
+                                                
+                                                
+Getting started
+===============
 
-Last updated 2022-11-01.
+Run sudo make install
 
-Manually installed
-==================
+Make sure /opt/local/etc/macports/sources.conf is updated to include:
 
-* Affinity Designer.app
-* Affinity Photo.app
-* Affinity Publisher.app
-* BBEdit.app
-* DEVONthink 3.app
-* Dash.app
-* Equinox.app
-* Fantastical.app
-* FileMaker Pro.app
-* Flashtex.app
-* GraphicConverter 11.app
-* Hype4.app
-* MacVim.app
-* Monodraw.app
-* Multipass.app
-* OmniGraffle.app
-* OmniPlan.app
-* Sketch.app
-* Vectornator.app
-* Xcode.app
-* MacPorts
-* MacTex
-* Node
-* Python
+file:///Users/cgreen/.dotfiles/ports
 
-Install ports
-=============
-
-% make install
+See https://guide.macports.org/chunked/development.local-repositories.html

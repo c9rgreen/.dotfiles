@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+
+# Configuration lives in config.ini
+
+import configparser
+from os import symlink
+from pathlib import Path
+from subprocess import Popen
+import argparse
+
+parser = argparse.ArgumentParser(
+    prog="Dotfiles installer",
+    description="Christopher's experimental dotfiles installer",
+    epilog="cgreen@saguaro.space",
+)
+
+parser.add_argument("--macports", action="store_true")
+parser.add_argument("--npm", action="store_true")
+parser.add_argument("--dotfiles", action="store_true")
+parser.add_argument("--pip", action="store_true")
+
+args = parser.parse_args()
+
+config = configparser.ConfigParser(allow_no_value=True)
+config.read("config.ini")
+
+# Install MacPorts
+if args.macports:
+    for port in config["MacPorts"]:
+        print(f"Installing {port}")
+        macports = Popen(["port", "-N", "install", port.strip()])
+
+# Install node modules
+if args.npm:
+    for node_module in config["NPM"]:
+        print(f"Installing {node_module}")
+        npm = Popen(["npm", "install", "--global", node_module.strip()])
+        
+# Install Python packages
+if args.pip:
+	for pkg in config["Pip"]:
+		print(f"Installing {pkg}")
+		pip = Popen(["pip3", "install", "--user", pkg.strip()])
+
+# Install dotfiles
+if args.dotfiles:
+    home = Path.home()
+    for item in config["Dotfiles"]:
+        item = item.strip()
+
+        src = f"{home}/.dotfiles/{item}"
+        dst = f"{home}/{item}"
+
+        if Path(dst).is_symlink():
+            print(f"{src}: symlink already exists")
+        else:
+            print(f"Linking {src} -> {dst}")
+            symlink(src, dst)

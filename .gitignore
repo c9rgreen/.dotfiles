@@ -1,8 +1,6 @@
 .DS_Store
 tags
+ports/PortIndex
+ports/PortIndex.quick
 .netrwhist
 .zsh_history
-vim/.vim/spell/
-vim/.vim/pack/local/
-vim/.vim/thesaurus/
-.Brewfile.lock.json

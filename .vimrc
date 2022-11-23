@@ -50,6 +50,7 @@ set ttyfast
 
 " LilyPond plugin
 set runtimepath+=/opt/local/share/lilypond/2.22.2/vim
+set packpath+=/opt/local/share/vim
 
 " Set map leader to <Space>
 let mapleader="\<Space>"
@@ -121,6 +122,9 @@ nnoremap <leader>i <C-I>
 " Edit
 nnoremap <leader>e :edit **/*
 
+" Quickly jump to buffer
+nnoremap <leader>b :buffer **/*
+
 " Hard wrap
 nnoremap <leader>h gqip$
 
@@ -136,15 +140,16 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 " Trigger auto-completion with Ctrl-Space
 imap <C-@> <C-Space>
 
+" Open netrw
+nnoremap - :Ex<CR>
+
+" Open vimrc
+nnoremap r :e ~/.vimrc<CR>
+
 " Add row of ===== below current line
 nnoremap <leader>1 yypVr=
 nnoremap <leader>2 yypVr-
 nnoremap <leader>3 yypVr*
-
-" CtrlP mappings
-nnoremap <leader>p :CtrlP<CR> 
-nnoremap <leader>b :CtrlPBuffer<CR> 
-nnoremap <leader>t :CtrlPBufTagAll<CR> 
 
 " Fugitive mappings
 nnoremap <leader>s :Git<CR>

@@ -1,61 +1,12 @@
 .PHONY: install
 install:
-	# Ports
-	sudo port install \
-		universal-ctags \
-		fossil \
-		lilypond \
-		zsh-autosuggestions \
-		zsh-syntax-highlighting \
-		wrangler \
-		terraform-1.2 \
-		packer \
-		yt-dlp \
-		tfsec \
-		trivy \
-		salt \
-		entr \
-		shfmt \
-		sqlfluff \
-		py39-black \
-		py39-flake8 \
-		nnn \
-		tig \
-		proselint \
-		helm-3.10 \
-		kubectl-1.25 \
-		pandoc \
-		stagit
-	# Global node modules
-	npm install --global \
-		typescript-language-server \
-		vscode-css-languageserver \
-		jedi-language-server \
-		yaml-language-server \
-		prettier \
-		surge \
-		vls \
-		vue-unused-components-checker \
-		mermaid-cli \
-		emmet
-
-
-.PHONY: freeze
-freeze:
-	port -qv installed > ports.txt
+	$(info "Run with sudo")
+	portindex ports
+	./install --macports --npm --pip
 
 .PHONY: link
 link:
-	stow \
-	  ctags \
-	  git \
-	  nano \
-	  npm \
-	  pandoc \
-	  tig \
-	  tmux \
-	  vim \
-	  zsh
+	./install --dotfiles
 
 .PHONY: defaults
 defaults:
@@ -73,3 +24,12 @@ defaults:
 	# BBEdit expert preferences
 	# Allow project drawer to receive keyboard focus
 	defaults write com.barebones.bbedit ProjectsListCanAcquireKeyboardFocus -bool YES
+
+.PHONY: format
+format:
+	black install
+	
+.PHONY: uninstall
+uninstall:
+	$(info "Run with sudo")
+	port -fp uninstall installed
