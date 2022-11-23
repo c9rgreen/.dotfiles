@@ -47,4 +47,4 @@ serve:
 .PHONY: deploy
 deploy:
 	$(info "Deploy to Cloudflare")
-	wrangler pages publish web
+	wrangler pages publish --project-name=dotfiles web
