@@ -1,8 +1,3 @@
-# ┌──────────────────────────────────────┐
-# │                 Git                  │
-# │ https://git-scm.com/docs/git-config  │
-# └──────────────────────────────────────┘
-
 [user]
 	email = cgreen@saguaro.space
 	name = Christopher Green
@@ -16,19 +11,12 @@
 	# Show diff
 	d = diff
 	
-	# --dir-diff
-	# Copy the modified files to a temporary location and perform a directory diff on them.
-	dt = difftool --dir-diff
-	
 	# List all remote branches
 	r = ls-remote --heads	
 	
 	# Show the working tree status
 	s = status
 	
-	# git st opens a diff in difftool between the two last revisions.
-	# https://stackoverflow.com/questions/17558221/how-can-i-view-the-output-of-git-show-in-a-diff-viewer-like-meld-kdiff3-etc
-	st = "!showci () { rev=${1:-HEAD}; git difftool --dir-diff $rev~1 $rev; }; showci $1"
 [github]
 	user = cg433n
 [pull]
@@ -39,5 +27,3 @@
 	defaultBranch = main
 [diff]
 	tool = vimdiff
-[difftool]
-	prompt = false
