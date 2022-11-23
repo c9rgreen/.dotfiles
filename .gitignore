@@ -1,7 +1,7 @@
 .DS_Store
 tags
-ports/PortIndex
-ports/PortIndex.quick
+PortIndex
+PortIndex.quick
 .netrwhist
 .zsh_history
 web/commit/*

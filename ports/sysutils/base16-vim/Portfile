@@ -1,0 +1,30 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           github 1.0
+
+github.setup        tinted-theming base16-vim 3cdd12b
+
+categories          sysutils
+platforms           darwin
+supported_archs     noarch
+license             MIT
+
+maintainers         cgreen@saguaro.space
+description         base16-vim refreshes and commits new themes weekly automatically and has a documented build process.
+
+checksums           rmd160  952aedcfb841920029b190d37f71b5b32b8d3dd3 \
+                    sha256  f5c69ec616bd4b7a49766a83a2eea5b41f68fa9f4f0baa57d3d266856c0de37b \
+                    size    2135731
+
+use_configure       no
+
+build {}
+
+destroot {
+    set dest_dir ${destroot}${prefix}/share/vim/pack/macports/start/base16-vim
+    xinstall -d ${dest_dir}
+    foreach f [glob -directory ${worksrcpath} -nocomplain *] {
+		file copy -force $f ${dest_dir}
+	}
+}
