@@ -1,0 +1,30 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           github 1.0
+
+github.setup        jeffkreeftmeijer vim-dim 8320a40
+
+categories          sysutils
+platforms           darwin
+supported_archs     noarch
+license             MIT
+
+maintainers         cgreen@saguaro.space
+description         A clone of Vim’s default colorscheme, with some improvements.
+
+checksums           rmd160  928502ddb31c76b9681a9dab5bf5d5a24d0f1999 \
+                    sha256  39de4f81b09a61eb5a3dde57d6cf7a4a3952efe2524609a70f7c2c126496695b \
+                    size    2881
+
+use_configure       no
+
+build {}
+
+destroot {
+    set dest_dir ${destroot}${prefix}/share/vim/pack/macports/start/vim-dim
+    xinstall -d ${dest_dir}
+    foreach f [glob -directory ${worksrcpath} -nocomplain *] {
+		file copy -force $f ${dest_dir}
+	}
+}
