@@ -146,9 +146,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     
     # Binaries not managed with a package manager
     export PATH="$HOME/.bin:$PATH"
-    
-    # Multipass autocompletions
-    source /Library/Application\ Support/com.canonical.multipass/Resources/completions/bash/multipass
 fi
 
 if type port &>/dev/null; then
