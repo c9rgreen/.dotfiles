@@ -37,3 +37,7 @@
 [init]
 	# `main` should be the default branch (rather than `master`)
 	defaultBranch = main
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
