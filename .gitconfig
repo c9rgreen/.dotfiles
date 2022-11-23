@@ -31,18 +31,6 @@
 	st = "!showci () { rev=${1:-HEAD}; git difftool --dir-diff $rev~1 $rev; }; showci $1"
 [github]
 	user = cg433n
-[diff]
-	tool = bbdiff
-[difftool]
-	prompt = false
-[difftool "bbdiff"]
-    cmd = bbdiff --wait --resume "$LOCAL" "$REMOTE"
-[merge]
-    tool = bbdiff
-[mergetool]
-    prompt = false
-[mergetool "bbdiff"]
-    cmd = bbdiff --wait --resume "$LOCAL" "$REMOTE"
 [pull]
 	# Only update to the new history if there is no divergent local history.
 	ff = only
