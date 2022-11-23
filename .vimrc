@@ -144,7 +144,7 @@ imap <C-@> <C-Space>
 nnoremap - :Ex<CR>
 
 " Open vimrc
-nnoremap r :e ~/.vimrc<CR>
+nnoremap <leader>r :e ~/.vimrc<CR>
 
 " Add row of ===== below current line
 nnoremap <leader>1 yypVr=
