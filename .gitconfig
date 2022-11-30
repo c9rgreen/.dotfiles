@@ -3,20 +3,13 @@
 	name = Christopher Green
 [alias]
 	# Fancier git log
-	g = log --graph --abbrev-commit --date=iso --all --decorate --oneline --color
+	graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s -%C(reset) %C(dim magenta)%an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	
 	# Show the last ten tags
-	t = tag --sort version:refname -n10 -n
-	
-	# Show diff
-	d = diff
+	ten = tag --sort version:refname -n10 -n
 	
 	# List all remote branches
-	r = ls-remote --heads	
-	
-	# Show the working tree status
-	s = status
-	
+	remotes = ls-remote --heads
 [github]
 	user = cg433n
 [pull]
