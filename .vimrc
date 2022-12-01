@@ -163,6 +163,7 @@ packadd! matchit
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
+let g:netrw_cursor = 0
 let g:markdown_folding = 1
 let g:ctrlp_user_command = {
             \ 'types': {
