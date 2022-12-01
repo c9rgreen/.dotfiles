@@ -61,10 +61,10 @@ if has('gui_running')
         function! MacAppearance()
             if v:os_appearance == 1
                 set background=dark
-                colorscheme base16-atelier-cave
+                colorscheme base16-atelier-dune
             else
                 set background=light
-                colorscheme base16-atelier-cave-light
+                colorscheme base16-atelier-dune-light
             endif
         endfunction
 
@@ -94,19 +94,7 @@ if has('gui_running')
         augroup END
     endif
 else
-    if $TERM_PROGRAM=='Apple_Terminal'
-        try
-            colorscheme base16-atelier-cave
-        catch
-            colorscheme default
-        endtry
-    else
-        try
-            colorscheme dim
-        catch
-            colorscheme default
-        endtry
-    endif
+    colorscheme dim
 endif
 
 " Abbreviations
