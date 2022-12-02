@@ -2,11 +2,11 @@
 install:
 	$(info "Run with sudo")
 	portindex ports
-	./install --macports --npm --pip
+	./setup --macports --npm --pip
 
 .PHONY: link
 link:
-	./install --dotfiles
+	./setup --dotfiles
 
 .PHONY: defaults
 defaults:
@@ -27,7 +27,7 @@ defaults:
 
 .PHONY: format
 format:
-	black install
+	black setup
 	
 .PHONY: uninstall
 uninstall:

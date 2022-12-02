@@ -9,9 +9,8 @@ from subprocess import Popen
 import argparse
 
 parser = argparse.ArgumentParser(
-    prog="Dotfiles installer",
-    description="Christopher's experimental dotfiles installer",
-    epilog="cgreen@saguaro.space",
+    prog="Local development setup utility",
+    description="Set up a local development environment with dotfiles, ports, node modules, and python packages.",
 )
 
 parser.add_argument("--macports", action="store_true")
@@ -42,7 +41,7 @@ if args.pip:
 		print(f"Installing {pkg}")
 		pip = Popen(["pip3", "install", "--user", pkg.strip()])
 
-# Install dotfiles
+# Symlink dotfiles
 if args.dotfiles:
     home = Path.home()
     for item in config["Dotfiles"]:
