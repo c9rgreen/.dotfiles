@@ -146,6 +146,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     
     # Binaries not managed with a package manager
     export PATH="$HOME/.bin:$PATH"
+    
+    # Python pip3 install --user
+    export PATH="$HOME/Library/Python/3.10/bin:$PATH"
 fi
 
 if type port &>/dev/null; then
