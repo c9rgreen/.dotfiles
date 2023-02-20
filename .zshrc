@@ -89,37 +89,40 @@ compinit
 autoload bashcompinit
 bashcompinit
 
+################
 # vi keybindings
 
-# function zle-keymap-select() {
-#   zle reset-prompt
-#   zle -R
-# }
-# 
-# TRAPWINCH() {
-#   zle &&  zle -R
-# }
-# 
-# zle -N zle-keymap-select
-# zle -N edit-command-line
-# 
-# bindkey -v
-# autoload -Uz edit-command-line
-# bindkey -M vicmd 'v' edit-command-line
+function zle-keymap-select() {
+  zle reset-prompt
+  zle -R
+}
+
+TRAPWINCH() {
+  zle &&  zle -R
+}
+
+zle -N zle-keymap-select
+zle -N edit-command-line
+
+bindkey -v
+autoload -Uz edit-command-line
+bindkey -M vicmd 'v' edit-command-line
 
 # Edit command in $EDITOR (emacs keybindings)
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey "^X^E" edit-command-line
+bindkey "^E" edit-command-line
+
+# end vi keybindings
+####################
 
 # Aliases
 alias ls="ls -Gh"
 alias grep="grep --exclude-dir=node_modules --exclude-dir=venv --exclude-dir=.git"
 alias mp="multipass"
-alias ctags="uctags" 
 alias pip="pip3"
 alias python="python3"
 alias history="history 1"
+alias pwgen="openssl rand -hex 8"
+alias activate=". venv/bin/activate"
 
 # Functions
 # Source https://stackoverflow.com/questions/3358420/generating-a-sha-256-hash-from-the-linux-command-line
@@ -128,32 +131,18 @@ sha256() { echo -n "$*" | shasum -a 256 }
 # Paths
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Location for global node modules. Avoids having to install with sudo.
-    export PATH="$HOME/.npm/bin:$PATH"
-
-    # MacPorts
-    # https://guide.macports.org
-    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-	
     # Cisco Anyconnect VPN path.
     export PATH="/opt/cisco/anyconnect/bin:$PATH"
 
     # Multipass. Used for multipass aliases.
     export PATH="$HOME/Library/Application Support/multipass/bin:$PATH"
-
-    # MacVim
-    export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
     
-    # Binaries not managed with a package manager
-    export PATH="$HOME/.bin:$PATH"
+    # Location for global node modules. Avoids having to install with sudo.
+    export PATH="$HOME/.npm/bin:$PATH"
     
     # Python pip3 install --user
     export PATH="$HOME/Library/Python/3.10/bin:$PATH"
-fi
 
-if type port &>/dev/null; then
-    # Autosuggestions and syntax highlighting
-    source /opt/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /opt/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # Binaries not managed with a package manager
+    export PATH="$HOME/.bin:$PATH"
 fi
-

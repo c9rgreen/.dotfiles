@@ -25,5 +25,7 @@ export WORDCHARS='*?[]~&;!$%^<>'
 # Always use color when grepping.
 export GREP_OPTIONS='--color=auto'
 
-# Set text editor
-export EDITOR='vim'
+# Set text editor to Nova if inside Nova terminal
+if [[ "$__CFBundleIdentifier" == "com.panic.Nova"* ]]; then
+    export EDITOR='nova --wait'
+fi

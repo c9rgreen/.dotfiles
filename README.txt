@@ -16,10 +16,4 @@
 Getting started
 ===============
 
-Run sudo make install
-
-Make sure /opt/local/etc/macports/sources.conf is updated to include:
-
-file:///Users/cgreen/.dotfiles/ports
-
-See https://guide.macports.org/chunked/development.local-repositories.html
+Run ./setup --help

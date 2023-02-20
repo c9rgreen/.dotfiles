@@ -10,10 +10,9 @@ import argparse
 
 parser = argparse.ArgumentParser(
     prog="Local development setup utility",
-    description="Set up a local development environment with dotfiles, ports, node modules, and python packages.",
+    description="Set up a local development environment with dotfiles, Node modules, and Python packages.",
 )
 
-parser.add_argument("--macports", action="store_true")
 parser.add_argument("--npm", action="store_true")
 parser.add_argument("--dotfiles", action="store_true")
 parser.add_argument("--pip", action="store_true")
@@ -22,12 +21,6 @@ args = parser.parse_args()
 
 config = configparser.ConfigParser(allow_no_value=True)
 config.read("config.ini")
-
-# Install MacPorts
-if args.macports:
-    for port in config["MacPorts"]:
-        print(f"Installing {port}")
-        macports = Popen(["port", "-N", "install", port.strip()])
 
 # Install node modules
 if args.npm:
