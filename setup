@@ -13,9 +13,9 @@ parser = argparse.ArgumentParser(
     description="Set up a local development environment with dotfiles, Node modules, and Python packages.",
 )
 
-parser.add_argument("--npm", action="store_true")
-parser.add_argument("--dotfiles", action="store_true")
-parser.add_argument("--pip", action="store_true")
+parser.add_argument("--dotfiles", action="store_true", help="Symlink dotfiles to $HOME")
+parser.add_argument("--npm", action="store_true", help="Install global NPM packages")
+parser.add_argument("--pip", action="store_true", help="Install global Python packages")
 
 args = parser.parse_args()
 
@@ -27,12 +27,12 @@ if args.npm:
     for node_module in config["NPM"]:
         print(f"Installing {node_module}")
         npm = Popen(["npm", "install", "--global", node_module.strip()])
-        
+
 # Install Python packages
 if args.pip:
-	for pkg in config["Pip"]:
-		print(f"Installing {pkg}")
-		pip = Popen(["pip3", "install", "--user", pkg.strip()])
+    for pkg in config["Pip"]:
+        print(f"Installing {pkg}")
+        pip = Popen(["pip3", "install", "--user", pkg.strip()])
 
 # Symlink dotfiles
 if args.dotfiles:
