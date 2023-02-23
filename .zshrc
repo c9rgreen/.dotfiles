@@ -129,6 +129,7 @@ alias activate=". venv/bin/activate"
 sha256() { echo -n "$*" | shasum -a 256 }
 
 # Paths
+# Other environment variables go in .zshenv
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # Cisco Anyconnect VPN path.
