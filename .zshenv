@@ -29,3 +29,8 @@ export GREP_OPTIONS='--color=auto'
 if [[ "$__CFBundleIdentifier" == "com.panic.Nova"* ]]; then
     export EDITOR='nova --wait'
 fi
+
+# Go
+# Source: https://learning.oreilly.com/library/view/learning-go/9781492077206/ch01.html#workspace
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
