@@ -89,8 +89,9 @@ compinit
 autoload bashcompinit
 bashcompinit
 
-################
+#
 # vi keybindings
+#
 
 function zle-keymap-select() {
   zle reset-prompt
@@ -111,10 +112,10 @@ bindkey -M vicmd 'v' edit-command-line
 # Edit command in $EDITOR (emacs keybindings)
 bindkey "^E" edit-command-line
 
-# end vi keybindings
-####################
-
+#
 # Aliases
+#
+
 alias ls="ls -Gh"
 alias grep="grep --exclude-dir=node_modules --exclude-dir=venv --exclude-dir=.git"
 alias mp="multipass"

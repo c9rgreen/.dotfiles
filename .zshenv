@@ -34,3 +34,7 @@ fi
 # Source: https://learning.oreilly.com/library/view/learning-go/9781492077206/ch01.html#workspace
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+if [ -f $HOME/.zshenv.private ]; then
+    source $HOME/.zshenv.private
+fi

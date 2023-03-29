@@ -47,7 +47,6 @@ set ttyfast
 set cursorline
 set nocursorline
 set guifont=SFMono-Regular:h12
-set background=dark
 
 " Mappings
 noremap <silent> k gk
@@ -82,6 +81,5 @@ let g:netrw_altv = 1
 let g:netrw_cursor = 0
 let g:markdown_folding = 1
 let g:javaScript_fold = 1
-let g:solarized_use16 = 1
 
-colorscheme solarized8
+colorscheme default
