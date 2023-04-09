@@ -133,6 +133,9 @@ sha256() { echo -n "$*" | shasum -a 256 }
 # Other environment variables go in .zshenv
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    # MacVim
+    export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
+
     # Cisco Anyconnect VPN path.
     export PATH="/opt/cisco/anyconnect/bin:$PATH"
 
