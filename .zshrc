@@ -124,6 +124,7 @@ alias python="python3"
 alias history="history 1"
 alias pwgen="openssl rand -hex 8"
 alias activate=". venv/bin/activate"
+alias jsonfmt="python -m json.tool"
 
 # Functions
 # Source https://stackoverflow.com/questions/3358420/generating-a-sha-256-hash-from-the-linux-command-line
