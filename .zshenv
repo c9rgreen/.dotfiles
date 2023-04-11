@@ -35,6 +35,6 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-if [ -f $HOME/.zshenv.private ]; then
-    source $HOME/.zshenv.private
+if [ -f $HOME/.zshenv_private ]; then
+    source $HOME/.zshenv_private
 fi
