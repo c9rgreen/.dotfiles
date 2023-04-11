@@ -40,7 +40,7 @@ if args.dotfiles:
     for item in config["Dotfiles"]:
         item = item.strip()
 
-        src = f"{home}/.dotfiles/{item}"
+        src = f"{home}/Sync/.dotfiles/{item}"
         dst = f"{home}/{item}"
 
         if Path(dst).is_symlink():
