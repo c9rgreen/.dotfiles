@@ -48,7 +48,9 @@ set number
 set ttyfast
 set ttimeoutlen=100
 set cursorline
-set nocursorline
+
+" Use <space> instead of <\> as the leader key
+let mapleader = "\<Space>"
 
 " Commands
 command! Bd :bn | :bd#
@@ -66,6 +68,10 @@ noremap <silent> k gk
 noremap <silent> j gj
 vnoremap < <gv
 vnoremap > >gv
+
+" Terminal mode mappings
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 " Jump backward
 nnoremap <leader>o <C-O>
@@ -93,8 +99,11 @@ nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR> 
 nnoremap <leader>t :CtrlPBufTagAll<CR> 
 
-" Use <space> instead of <\> as the leader key
-let mapleader = "\<Space>"
+" Vista
+nnoremap <leader>v :Vista!!<CR>
+
+" Fern
+nnoremap <leader>f :Fern . -drawer -stay -toggle<CR>
 
 " Packages
 packadd! matchit
@@ -107,6 +116,8 @@ let g:netrw_cursor = 0
 let g:markdown_folding = 1
 let g:javaScript_fold = 1
 let g:mucomplete#enable_auto_at_startup = 1
+let g:vista#renderer#enable_icon = 0
+let g:vista_default_executive = 'vim_lsp'
 let g:ctrlp_user_command = {
             \ 'types': {
             \ 1: ['.git', 'cd %s && git ls-files'],
@@ -114,6 +125,12 @@ let g:ctrlp_user_command = {
             \ },
             \ 'fallback': 'find %s -type f'
             \ }
+
+" Autogroups
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern setlocal nonumber
+augroup END
 
 " Terminal-specific
 if has('ttyout')
@@ -148,7 +165,7 @@ if has('gui_macvim')
     vnoremap <D-]> >gv
 
     " Toggle comments
-    inoremap <D-/> :Commentary<CR>
+    inoremap <D-/> <Esc>:Commentary<CR>
     vnoremap <D-/> :Commentary<CR>
     nnoremap <D-/> :Commentary<CR>
 endif
