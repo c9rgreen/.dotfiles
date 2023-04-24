@@ -31,7 +31,19 @@ set hlsearch
 set wildmenu
 set wildignore+=*.git,*venv/*,*node_modules/*,*vendor/*,*__pycache__/*,*.aux,*.cls,*dist/*,*output/*
 set wildignorecase
-set statusline=%<[%{fnamemodify(getcwd(),':t')}]\ %f\ %h%m%r%{exists('g:loaded_fugitive')?fugitive#statusline():''}%=%-14.(%l,%c%V\ %L%)\ %P\ [%{wordcount().words}]
+set statusline=
+set statusline+=%<[%{fnamemodify(getcwd(),':t')}]
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
+set statusline+=\ [wc%{wordcount().words}]
 set autoread
 set spelllang=en_us
 set sidescrolloff=0
@@ -40,14 +52,13 @@ set tags^=./.git/tags
 set laststatus=2
 set foldlevel=5
 set virtualedit=all
-set linespace=2
 set isfname+=32
 set belloff+=ctrlg
 set mouse=a
 set number
 set ttyfast
 set ttimeoutlen=100
-set cursorline
+set linespace=1
 
 " Use <space> instead of <\> as the leader key
 let mapleader = "\<Space>"
@@ -91,9 +102,6 @@ nnoremap <leader>a :tag *
 " Hard wrap
 nnoremap <leader>h gqip$
 
-" Fugitive mappings
-nnoremap <leader>s :Git<CR>
-
 " CtrlP mappings
 nnoremap <leader>p :CtrlP<CR> 
 nnoremap <leader>b :CtrlPBuffer<CR> 
@@ -118,6 +126,7 @@ let g:javaScript_fold = 1
 let g:mucomplete#enable_auto_at_startup = 1
 let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'vim_lsp'
+let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = {
             \ 'types': {
             \ 1: ['.git', 'cd %s && git ls-files'],
@@ -152,9 +161,9 @@ if has('gui_macvim')
         autocmd OSAppearanceChanged * call MacAppearance()
     augroup END
 
-    set guifont=SFMono-Regular:h12
+    set guifont=BerkeleyMono-Regular:h13
 
-    let macvim_hig_shift_movement=1
+    " let macvim_hig_shift_movement=1
 
     " Indent/Outdent
     inoremap <D-[> <C-d>
