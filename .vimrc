@@ -32,18 +32,24 @@ set wildmenu
 set wildignore+=*.git,*venv/*,*node_modules/*,*vendor/*,*__pycache__/*,*.aux,*.cls,*dist/*,*output/*
 set wildignorecase
 set statusline=
-set statusline+=%<[%{fnamemodify(getcwd(),':t')}]
+set statusline+=\ %<%{fnamemodify(getcwd(),':t')}\ 
+set statusline+=
+set statusline+=%{&readonly?'':''}
 set statusline+=\ %f
 set statusline+=%=
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set statusline+=%#CursorColumn#
+set statusline+=
+
+if exists("g:loaded_fugitive")
+    set statusline+=\ \ 
+    set statusline+=%{FugitiveStatusline()}
+endif
+
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ 
-set statusline+=\ [wc%{wordcount().words}]
+set statusline+=\ %l%c
+set statusline+=\ ℹ︎%{wordcount().words}
 set autoread
 set spelllang=en_us
 set sidescrolloff=0
@@ -106,6 +112,7 @@ nnoremap <leader>h gqip$
 nnoremap <leader>p :CtrlP<CR> 
 nnoremap <leader>b :CtrlPBuffer<CR> 
 nnoremap <leader>t :CtrlPBufTagAll<CR> 
+nnoremap <leader>l :CtrlPLspDocumentSymbol<CR>
 
 " Vista
 nnoremap <leader>v :Vista!!<CR>
