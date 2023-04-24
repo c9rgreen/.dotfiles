@@ -76,3 +76,6 @@
 [submodule ".vim/pack/github.com/start/ctrlp-lsp"]
 	path = .vim/pack/github.com/start/ctrlp-lsp
 	url = git@github.com:mattn/ctrlp-lsp.git
+[submodule ".vim/pack/github.com/start/mermaid.vim"]
+	path = .vim/pack/github.com/start/mermaid.vim
+	url = git@github.com:mracos/mermaid.vim.git
