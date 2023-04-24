@@ -25,7 +25,10 @@ export WORDCHARS='*?[]~&;!$%^<>'
 # Always use color when grepping.
 export GREP_OPTIONS='--color=auto'
 
-# Set text editor to Nova if inside Nova terminal
+# Use the login keychain for the aws-vault
+export AWS_VAULT_KEYCHAIN_NAME=login
+
+# Set text editor to nova if inside Nova terminal
 if [[ "$__CFBundleIdentifier" == "com.panic.Nova"* ]]; then
     export EDITOR='nova --wait'
 fi
@@ -38,3 +41,25 @@ export PATH=$PATH:$GOPATH/bin
 if [ -f $HOME/.zshenv_private ]; then
     source $HOME/.zshenv_private
 fi
+
+
+# Paths
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # MacVim
+    export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
+
+    # Cisco Anyconnect VPN path.
+    export PATH="/opt/cisco/anyconnect/bin:$PATH"
+    
+    # Python pip3 install --user
+    export PATH="$HOME/Library/Python/3.10/bin:$PATH"
+
+fi
+
+# Location for global node modules. Avoids having to install with sudo.
+export PATH="$HOME/.local/npm/bin:$PATH"
+
+# Binaries not managed with a package manager
+export PATH="$HOME/.local/bin:$PATH"
+

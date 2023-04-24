@@ -54,9 +54,6 @@ setopt HIST_IGNORE_SPACE
 # line into the editing buffer.
 setopt HIST_VERIFY
 
-# Location of zsh history file. Redundant on macOS.
-export HISTFILE="$HOME/.zsh_history"
-
 # The maximum number of events stored in the internal history list. If
 # you use the HIST_EXPIRE_DUPS_FIRST option, setting this value larger
 # than the SAVEHIST size will give you the difference as a cushion for
@@ -130,25 +127,3 @@ alias jsonfmt="python -m json.tool"
 # Source https://stackoverflow.com/questions/3358420/generating-a-sha-256-hash-from-the-linux-command-line
 sha256() { echo -n "$*" | shasum -a 256 }
 
-# Paths
-# Other environment variables go in .zshenv
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # MacVim
-    export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
-
-    # Cisco Anyconnect VPN path.
-    export PATH="/opt/cisco/anyconnect/bin:$PATH"
-
-    # Multipass. Used for multipass aliases.
-    export PATH="$HOME/Library/Application Support/multipass/bin:$PATH"
-    
-    # Location for global node modules. Avoids having to install with sudo.
-    export PATH="$HOME/.npm/bin:$PATH"
-    
-    # Python pip3 install --user
-    export PATH="$HOME/Library/Python/3.10/bin:$PATH"
-
-    # Binaries not managed with a package manager
-    export PATH="$HOME/.bin:$PATH"
-fi
