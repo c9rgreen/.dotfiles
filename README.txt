@@ -1,8 +1,3 @@
-╔══════════════════════════════════════════════════╗
-║                                                  ║
-║              Christopher's Dotfiles              ║
-║               cgreen@saguaro.space               ║
-║                                                  ║
-╚══════════════════════════════════════════════════╝
+Christopher's dotfiles
                                                 
 Run ./setup --help to get started.
