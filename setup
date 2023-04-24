@@ -3,7 +3,7 @@
 # Configuration lives in config.ini
 
 import configparser
-from os import symlink
+from os import symlink, getcwd
 from pathlib import Path
 from subprocess import Popen
 import argparse
@@ -39,8 +39,9 @@ if args.dotfiles:
     home = Path.home()
     for item in config["Dotfiles"]:
         item = item.strip()
+        cwd = getcwd()
 
-        src = f"{home}/Sync/.dotfiles/{item}"
+        src = f"{cwd}/{item}"
         dst = f"{home}/{item}"
 
         if Path(dst).is_symlink():
