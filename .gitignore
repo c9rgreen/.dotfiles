@@ -3,6 +3,4 @@ tags
 .netrwhist
 .zsh_history
 .zshenv_private
-.vim/pack/github.com
-.vim/pack/vim.org
-.vim/spell
+.vim
