@@ -76,12 +76,6 @@
 [submodule ".vim/pack/github.com/start/mermaid.vim"]
 	path = .vim/pack/github.com/start/mermaid.vim
 	url = git@github.com:mracos/mermaid.vim.git
-[submodule ".vim/pack/github.com/start/vim-pandoc"]
-	path = .vim/pack/github.com/start/vim-pandoc
-	url = git@github.com:vim-pandoc/vim-pandoc.git
-[submodule ".vim/pack/github.com/start/vim-pandoc-syntax"]
-	path = .vim/pack/github.com/start/vim-pandoc-syntax
-	url = git@github.com:vim-pandoc/vim-pandoc-syntax.git
-[submodule ".vim/pack/github.com/start/vim-markdownfootnotes"]
-	path = .vim/pack/github.com/start/vim-markdownfootnotes
-	url = git@github.com:vim-pandoc/vim-markdownfootnotes.git
+[submodule ".vim/pack/github.com/start/vim-jsdoc"]
+	path = .vim/pack/github.com/start/vim-jsdoc
+	url = git@github.com:heavenshell/vim-jsdoc.git

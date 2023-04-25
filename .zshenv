@@ -46,6 +46,9 @@ fi
 # Paths
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    # MacPorts
+    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
     # MacVim
     export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
 
@@ -54,7 +57,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     
     # Python pip3 install --user
     export PATH="$HOME/Library/Python/3.10/bin:$PATH"
-
 fi
 
 # Location for global node modules. Avoids having to install with sudo.

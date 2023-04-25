@@ -32,13 +32,12 @@ set wildmenu
 set wildignore+=*.git,*venv/*,*node_modules/*,*vendor/*,*__pycache__/*,*.aux,*.cls,*dist/*,*output/*
 set wildignorecase
 set statusline=
-set statusline+=\ %<%{fnamemodify(getcwd(),':t')}\ 
-set statusline+=
-set statusline+=%{&readonly?'':''}
-set statusline+=\ %f
+set statusline+=\[%<%{fnamemodify(getcwd(),':t')}]\ 
+set statusline+=%{&readonly?'\ ':''}
+set statusline+=\ %f\ 
+set statusline+=%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
-set statusline+=
 
 if exists("g:loaded_fugitive")
     set statusline+=\ \ 
@@ -146,6 +145,11 @@ let g:ctrlp_user_command = {
 augroup fern-custom
   autocmd! *
   autocmd FileType fern setlocal nonumber
+augroup END
+
+augroup javascript
+    au!
+    au FileType javascript setlocal foldmethod=syntax
 augroup END
 
 " Terminal-specific
