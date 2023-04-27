@@ -33,22 +33,16 @@ set wildignore+=*.git,*venv/*,*node_modules/*,*vendor/*,*__pycache__/*,*.aux,*.c
 set wildignorecase
 set statusline=
 set statusline+=\[%<%{fnamemodify(getcwd(),':t')}]\ 
-set statusline+=%{&readonly?'\ ':''}
 set statusline+=\ %f\ 
 set statusline+=%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
-
-if exists("g:loaded_fugitive")
-    set statusline+=\ \ 
-    set statusline+=%{FugitiveStatusline()}
-endif
-
+set statusline+=%{FugitiveStatusline()}
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ %p%%
-set statusline+=\ %l%c
-set statusline+=\ ℹ︎%{wordcount().words}
+set statusline+=\ %l:%c
+set statusline+=\ w%{wordcount().words}
 set autoread
 set spelllang=en_us
 set sidescrolloff=0
@@ -113,12 +107,6 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>t :CtrlPBufTagAll<CR> 
 nnoremap <leader>l :CtrlPLspDocumentSymbol<CR>
 
-" Vista
-nnoremap <leader>v :Vista!!<CR>
-
-" Fern
-nnoremap <leader>f :Fern . -drawer -stay -toggle<CR>
-
 " Packages
 packadd! matchit
 
@@ -129,9 +117,6 @@ let g:netrw_altv = 1
 let g:netrw_cursor = 0
 let g:markdown_folding = 1
 let g:javaScript_fold = 1
-let g:mucomplete#enable_auto_at_startup = 1
-let g:vista#renderer#enable_icon = 0
-let g:vista_default_executive = 'vim_lsp'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = {
             \ 'types': {
@@ -140,12 +125,6 @@ let g:ctrlp_user_command = {
             \ },
             \ 'fallback': 'find %s -type f'
             \ }
-
-" Autogroups
-augroup fern-custom
-  autocmd! *
-  autocmd FileType fern setlocal nonumber
-augroup END
 
 augroup javascript
     au!
