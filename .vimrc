@@ -117,6 +117,19 @@ let g:netrw_altv = 1
 let g:netrw_cursor = 0
 let g:markdown_folding = 1
 let g:javaScript_fold = 1
+let g:vim_vue_plugin_config = { 
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript'],
+      \   'style': ['css'],
+      \},
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 0,
+      \'keyword': 0,
+      \'foldexpr': 1,
+      \'debug': 0,
+      \}
 let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = {
             \ 'types': {
