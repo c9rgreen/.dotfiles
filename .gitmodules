@@ -79,3 +79,6 @@
 [submodule ".vim/pack/github.com/start/vim-jsdoc"]
 	path = .vim/pack/github.com/start/vim-jsdoc
 	url = git@github.com:heavenshell/vim-jsdoc.git
+[submodule ".vim/pack/github.com/start/vim-dadbod"]
+	path = .vim/pack/github.com/start/vim-dadbod
+	url = git@github.com:tpope/vim-dadbod.git
