@@ -82,3 +82,6 @@
 [submodule ".vim/pack/github.com/start/vim-dadbod"]
 	path = .vim/pack/github.com/start/vim-dadbod
 	url = git@github.com:tpope/vim-dadbod.git
+[submodule ".vim/pack/github.com/start/ale"]
+	path = .vim/pack/github.com/start/ale
+	url = git@github.com:dense-analysis/ale.git

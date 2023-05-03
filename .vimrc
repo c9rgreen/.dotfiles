@@ -58,6 +58,9 @@ set number
 set ttyfast
 set ttimeoutlen=100
 set linespace=1
+set signcolumn=yes
+set fillchars+=vert:\ 
+set fillchars+=fold:\ 
 
 " Use <space> instead of <\> as the leader key
 let mapleader = "\<Space>"
@@ -134,10 +137,11 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = {
             \ 'types': {
             \ 1: ['.git', 'cd %s && git ls-files'],
-            \ 2: ['.hg', 'hg --cwd %s locate -I .'],
             \ },
             \ 'fallback': 'find %s -type f'
             \ }
+let g:lsp_preview_float = 0 " Open preview windows as normal windows rather than floating
+let g:lsp_diagnostics_enabled = 0 " Disable diagnostics from vim-lsp
 
 augroup javascript
     au!
@@ -164,7 +168,7 @@ if has('gui_macvim')
         autocmd OSAppearanceChanged * call MacAppearance()
     augroup END
 
-    set guifont=BerkeleyMono-Regular:h13
+    set guifont=BerkeleyMono-Regular:h12
 
     " let macvim_hig_shift_movement=1
 
