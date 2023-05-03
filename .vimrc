@@ -142,10 +142,17 @@ let g:ctrlp_user_command = {
             \ }
 let g:lsp_preview_float = 0 " Open preview windows as normal windows rather than floating
 let g:lsp_diagnostics_enabled = 0 " Disable diagnostics from vim-lsp
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_conceal_function = "ƒ"
+let g:javascript_conceal_this = "↘"
+let g:javascript_conceal_return = "▶"
 
 augroup javascript
     au!
     au FileType javascript setlocal foldmethod=syntax
+    au FileType javascript setlocal omnifunc=lsp#complete
+    au FileType javascript setlocal tagfunc=lsp#tagfunc
+    au FileType javascript setlocal conceallevel=1
 augroup END
 
 " Terminal-specific
@@ -168,6 +175,7 @@ if has('gui_macvim')
         autocmd OSAppearanceChanged * call MacAppearance()
     augroup END
 
+    set macligatures
     set guifont=BerkeleyMono-Regular:h12
 
     " let macvim_hig_shift_movement=1
