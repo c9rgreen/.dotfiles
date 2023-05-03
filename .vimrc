@@ -61,7 +61,6 @@ set linespace=1
 set signcolumn=yes
 set fillchars+=vert:\ 
 set fillchars+=fold:\ 
-set background=light
 
 " Use <space> instead of <\> as the leader key
 let mapleader = "\<Space>"
