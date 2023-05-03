@@ -61,6 +61,7 @@ set linespace=1
 set signcolumn=yes
 set fillchars+=vert:\ 
 set fillchars+=fold:\ 
+set background=light
 
 " Use <space> instead of <\> as the leader key
 let mapleader = "\<Space>"
@@ -147,14 +148,6 @@ let g:javascript_conceal_function = "ƒ"
 let g:javascript_conceal_this = "↘"
 let g:javascript_conceal_return = "▶"
 
-augroup javascript
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-    au FileType javascript setlocal omnifunc=lsp#complete
-    au FileType javascript setlocal tagfunc=lsp#tagfunc
-    au FileType javascript setlocal conceallevel=1
-augroup END
-
 " Terminal-specific
 if has('ttyout')
     let g:solarized_use16 = 1
@@ -193,4 +186,17 @@ if has('gui_macvim')
     vnoremap <D-/> :Commentary<CR>
     nnoremap <D-/> :Commentary<CR>
 endif
+
+augroup javascript
+    autocmd!
+    autocmd FileType javascript setlocal foldmethod=syntax
+    autocmd FileType javascript setlocal omnifunc=lsp#complete
+    autocmd FileType javascript setlocal tagfunc=lsp#tagfunc
+    autocmd FileType javascript setlocal conceallevel=1
+augroup END
+
+augroup highlight
+    autocmd!
+    autocmd ColorScheme,VimEnter * highlight! link SignColumn LineNr
+augroup END
 
