@@ -55,9 +55,6 @@
 [submodule ".vim/pack/github.com/start/vim-tailwind"]
 	path = .vim/pack/github.com/start/vim-tailwind
 	url = git@github.com:airblade/vim-tailwind.git
-[submodule ".vim/pack/github.com/start/vim-gitgutter"]
-	path = .vim/pack/github.com/start/vim-gitgutter
-	url = git@github.com:airblade/vim-gitgutter.git
 [submodule ".vim/pack/github.com/start/vim-terraform"]
 	path = .vim/pack/github.com/start/vim-terraform
 	url = git@github.com:hashivim/vim-terraform.git
@@ -85,3 +82,12 @@
 [submodule ".vim/pack/github.com/start/ale"]
 	path = .vim/pack/github.com/start/ale
 	url = git@github.com:dense-analysis/ale.git
+[submodule ".vim/pack/github.com/start/vim-pandoc"]
+	path = .vim/pack/github.com/start/vim-pandoc
+	url = git@github.com:vim-pandoc/vim-pandoc.git
+[submodule ".vim/pack/github.com/start/vim-pandoc-syntax"]
+	path = .vim/pack/github.com/start/vim-pandoc-syntax
+	url = git@github.com:vim-pandoc/vim-pandoc-syntax.git
+[submodule ".vim/pack/github.com/start/vim-signify"]
+	path = .vim/pack/github.com/start/vim-signify
+	url = git@github.com:mhinz/vim-signify.git
