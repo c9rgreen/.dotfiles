@@ -191,7 +191,7 @@ augroup javascript
     autocmd FileType javascript setlocal foldmethod=syntax
     autocmd FileType javascript setlocal omnifunc=lsp#complete
     autocmd FileType javascript setlocal tagfunc=lsp#tagfunc
-    autocmd FileType javascript setlocal conceallevel=1
+    autocmd FileType javascript setlocal conceallevel=0
 augroup END
 
 augroup highlight

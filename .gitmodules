@@ -91,3 +91,12 @@
 [submodule ".vim/pack/github.com/start/vim-signify"]
 	path = .vim/pack/github.com/start/vim-signify
 	url = git@github.com:mhinz/vim-signify.git
+[submodule ".vim/pack/github.com/start/vim-pencil"]
+	path = .vim/pack/github.com/start/vim-pencil
+	url = git@github.com:preservim/vim-pencil.git
+[submodule ".vim/pack/github.com/start/vim-colors-pencil"]
+	path = .vim/pack/github.com/start/vim-colors-pencil
+	url = git@github.com:preservim/vim-colors-pencil.git
+[submodule ".vim/pack/github.com/start/vim-wordy"]
+	path = .vim/pack/github.com/start/vim-wordy
+	url = git@github.com:preservim/vim-wordy.git
