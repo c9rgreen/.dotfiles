@@ -100,3 +100,6 @@
 [submodule ".vim/pack/github.com/start/vim-wordy"]
 	path = .vim/pack/github.com/start/vim-wordy
 	url = git@github.com:preservim/vim-wordy.git
+[submodule ".vim/pack/github.com/start/vim-chatgpt"]
+	path = .vim/pack/github.com/start/vim-chatgpt
+	url = git@github.com:CoderCookE/vim-chatgpt.git

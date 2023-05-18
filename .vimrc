@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax enable
-colorscheme solarized8
+colorscheme xcode
 
 " Options
 set autoindent
@@ -168,7 +168,7 @@ if has('gui_macvim')
     augroup END
 
     set macligatures
-    set guifont=BerkeleyMono-Regular:h12
+    set guifont=SFMono-Regular:h12
 
     " let macvim_hig_shift_movement=1
 
