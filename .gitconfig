@@ -20,3 +20,5 @@
 	defaultBranch = main
 [diff]
 	tool = vimdiff
+[mergetool]
+	keepBackup = true

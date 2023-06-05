@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax enable
-colorscheme xcode
+colorscheme solarized8
 
 " Options
 set autoindent
@@ -114,10 +114,6 @@ nnoremap <leader>l :CtrlPLspDocumentSymbol<CR>
 packadd! matchit
 
 " Variables
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_altv = 1
-let g:netrw_cursor = 0
 let g:markdown_folding = 1
 let g:javaScript_fold = 1
 let g:vim_vue_plugin_config = { 
@@ -143,9 +139,6 @@ let g:ctrlp_user_command = {
 let g:lsp_preview_float = 0 " Open preview windows as normal windows rather than floating
 let g:lsp_diagnostics_enabled = 0 " Disable diagnostics from vim-lsp
 let g:javascript_plugin_jsdoc = 1
-let g:javascript_conceal_function = "ƒ"
-let g:javascript_conceal_this = "↘"
-let g:javascript_conceal_return = "▶"
 
 " Terminal-specific
 if has('ttyout')
