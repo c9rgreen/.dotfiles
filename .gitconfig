@@ -10,6 +10,9 @@
 	
 	# List all remote branches
 	remotes = ls-remote --heads
+	
+	# Show difference between HEAD and main
+	mr = diff --name-status main HEAD
 [github]
 	user = cg433n
 [pull]

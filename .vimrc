@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax enable
-colorscheme solarized8
+colorscheme xcode
 
 " Options
 set autoindent
@@ -57,7 +57,7 @@ set mouse=a
 set number
 set ttyfast
 set ttimeoutlen=100
-set linespace=1
+set linespace=2
 set signcolumn=yes
 set fillchars+=vert:\ 
 set fillchars+=fold:\ 
@@ -115,7 +115,6 @@ packadd! matchit
 
 " Variables
 let g:markdown_folding = 1
-let g:javaScript_fold = 1
 let g:vim_vue_plugin_config = { 
       \'syntax': {
       \   'template': ['html'],
@@ -137,6 +136,7 @@ let g:ctrlp_user_command = {
             \ 'fallback': 'find %s -type f'
             \ }
 let g:lsp_preview_float = 0 " Open preview windows as normal windows rather than floating
+let g:lsp_preview_autoclose = 1
 let g:lsp_diagnostics_enabled = 0 " Disable diagnostics from vim-lsp
 let g:javascript_plugin_jsdoc = 1
 

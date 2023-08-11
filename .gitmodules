@@ -103,3 +103,6 @@
 [submodule ".vim/pack/github.com/start/vim-chatgpt"]
 	path = .vim/pack/github.com/start/vim-chatgpt
 	url = git@github.com:CoderCookE/vim-chatgpt.git
+[submodule ".vim/pack/github.com/start/MatchTag"]
+	path = .vim/pack/github.com/start/MatchTag
+	url = git@github.com:gregsexton/MatchTag.git
